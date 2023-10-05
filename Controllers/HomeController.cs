@@ -15,6 +15,9 @@ namespace Laboratorium3.Controllers
 
         public IActionResult Index()
         {
+            Random r = new Random();
+            ViewData["random"] = r.NextDouble();
+
             return View();
         }
 
