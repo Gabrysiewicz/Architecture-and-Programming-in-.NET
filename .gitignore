@@ -5,7 +5,9 @@ obj/
 # User Specific
 *.suo
 *.user
+*.sln
 *.sln.docstates
 
 # VScode
 .vscode/
+.vs
