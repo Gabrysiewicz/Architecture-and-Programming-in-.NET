@@ -50,22 +50,22 @@ namespace Laboratorium2
             };
         }
 
-        public void show()
+        public override string ToString()
         {
-            Console.Write($"{name.PadRight(8)}\t");
+            string formattedOutput = "";
+            formattedOutput += name.PadRight(10);
             if(isSweet)
             {
-                Console.ForegroundColor = ConsoleColor.Green;
+                formattedOutput += "Sweet".PadRight(10);
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Red;
+                formattedOutput += "Not Sweet".PadRight(10);
             }
-            Console.Write("Sweet".PadRight(8));
-            Console.ForegroundColor = ConsoleColor.White;
-
+            
             var priceRound = Math.Round(price, 2);
-            Console.Write($"{priceRound.ToString().PadRight(4)} PLN\n");
+            formattedOutput += priceRound.ToString().PadRight(4) + " PLN";
+            return formattedOutput;
         }
     }
 
