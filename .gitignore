@@ -1,0 +1,11 @@
+# Ignore these
+bin/
+obj/
+
+# User Specific
+*.suo
+*.user
+*.sln.docstates
+
+# VScode
+.vscode/
