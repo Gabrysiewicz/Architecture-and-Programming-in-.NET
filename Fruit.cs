@@ -62,9 +62,29 @@ namespace Laboratorium2
             {
                 formattedOutput += "Not Sweet".PadRight(10);
             }
-            
+            var priceRound = Math.Round(price , 2);
+            formattedOutput += $"{priceRound.ToString().PadRight(4)} PLN";
+            return formattedOutput;
+        }
+
+        public async Task<string> ToStringAsync()
+        {
+            string formattedOutput = "";
+            formattedOutput += name.PadRight(10);
+            if (isSweet)
+            {
+                formattedOutput += "Sweet".PadRight(10);
+            }
+            else
+            {
+                formattedOutput += "Not Sweet".PadRight(10);
+            }
+            UsdCourse.Current = await UsdCourse.GetUsdCourseAsync();
+
             var priceRound = Math.Round(price, 2);
-            formattedOutput += priceRound.ToString().PadRight(4) + " PLN";
+            var priceRoundUsd = Math.Round(price / UsdCourse.Current, 2);
+
+            formattedOutput += $"[{priceRound.ToString().PadRight(4)} PLN | {priceRoundUsd.ToString().PadRight(4)} USD]";
             return formattedOutput;
         }
     }

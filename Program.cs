@@ -26,5 +26,10 @@ internal class Program
         Console.WriteLine( $"\nCurrent USD Course: {UsdCourse.Current} PLN");
         Console.ResetColor();
 
+        Console.WriteLine("\n=== All Fruits /w USD ===");
+        foreach (var fruit in FruitList)
+        {
+            Console.WriteLine(await fruit.ToStringAsync());
+        }
     }
 }

@@ -38,7 +38,21 @@ Task<float>, czyli nie wartość typu float, ale „obietnicę” zwrócenia flo
 w przyszłości.
 ```
 
-# Zadanie 5 - TODO
+# Zadanie 5 - ToStringAsync
+```
+Dodaj do swojej klasy Fruit właściwość UsdPrice – będzie ona obliczała cenę
+w dolarach na podstawie ceny bazowej.
 ```
 
+# Zadanie 6 - MyFormatter
+```
+Kultura („locale”) to zestaw informacji, które opisują w jaki sposób należy wyświetlać
+format daty, godziny, czy też liczb i walut w zależności od regionu świata i używanego
+języka. Jak prawdopodobnie wiesz, w Polsce waluta wyświetlana jest w formacie „0,99 zł”,
+natomiast w USA – „$0.99”. Należy dodać do naszego programu mechanizm, aby cena
+bazowa (Price) była wyświetlana poprzez zwykłe formatowanie walut, a cena w dolarach
+w sposób odpowiedni dla USA.
+Dodaj do swojego programu nową klasę, MyFormatter.
+Klasa ta będzie zawierać jedną metodę statyczną, FormatUsdPrice, która będzie
+przyjmować double i zwracać string.
 ```
