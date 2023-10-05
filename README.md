@@ -66,7 +66,11 @@ jednostkowy, który sprawdzi, czy klasa MyFormatter i jej metoda FormatUsdPrice(
 działa odpowiednio.
 ```
 
-# Zadanie 8 - TODO
+# Zadanie 8 - Test Enchanced
 ```
-
+Zmodyfikuj test w taki sposób, aby sprawdzić, czy zawiera dokładnie tę wartość, która
+została podana do testowania, w dokładnie określonym formacie, np. jeżeli wartością testową
+było 0.05 to czy wynik zaczyna się od $0, potem zawiera konkretnie kropkę, a potem zawiera
+05.
 ```
+*2 Pierwsze testy są przygotowane tak aby sprawdzać wynik poprawny natomiast ostatni (3) sprawdza błędny wynik, jeżeli wynik jest poprawny zwradza true*
