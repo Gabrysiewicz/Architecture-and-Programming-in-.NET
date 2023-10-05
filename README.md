@@ -56,3 +56,17 @@ Dodaj do swojego programu nową klasę, MyFormatter.
 Klasa ta będzie zawierać jedną metodę statyczną, FormatUsdPrice, która będzie
 przyjmować double i zwracać string.
 ```
+
+# Zadanie 7 - Test
+```
+Samodzielne, ręczne, sprawdzanie działania programu często jest uciążliwe,
+monotonne i nieefektywne. Z tego też powodu stosuje się między innymi testy automatyczne,
+w szczególności testy jednostkowe. W tym zadaniu spróbujemy przygotować test
+jednostkowy, który sprawdzi, czy klasa MyFormatter i jej metoda FormatUsdPrice()
+działa odpowiednio.
+```
+
+# Zadanie 8 - TODO
+```
+
+```
