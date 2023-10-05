@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -84,9 +85,21 @@ namespace Laboratorium2
             var priceRound = Math.Round(price, 2);
             var priceRoundUsd = Math.Round(price / UsdCourse.Current, 2);
 
-            formattedOutput += $"[{priceRound.ToString().PadRight(4)} PLN | {priceRoundUsd.ToString().PadRight(4)} USD]";
+            formattedOutput += $"[{FormatPlnPrice(priceRound)} | {FormatUsdPrice(priceRoundUsd)} ]";
+
             return formattedOutput;
         }
+        public static string FormatUsdPrice(double price)
+        {
+            var usc = new CultureInfo("en-us");
+            return price.ToString("C2", usc);
+        }
+        public static string FormatPlnPrice(double price)
+        {
+            var plc = new CultureInfo("pl-PL");
+            return price.ToString("C2", plc);
+        }
+
     }
 
 }

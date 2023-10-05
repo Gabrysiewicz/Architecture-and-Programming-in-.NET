@@ -31,5 +31,6 @@ namespace Laboratorium2
             }
             throw new InvalidOperationException();
         }
+
     }
 }
