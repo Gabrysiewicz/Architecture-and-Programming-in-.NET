@@ -7,6 +7,7 @@ namespace Laboratorium3.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly PhoneBookService _phoneBook;
 
         // public HomeController(ILogger<HomeController> logger)
         // {
@@ -14,7 +15,6 @@ namespace Laboratorium3.Controllers
         // }
 
         // Access to PhoneBookService
-        private readonly PhoneBookService _phoneBook;
         public HomeController(ILogger<HomeController> logger, PhoneBookService phoneBook)
         {
             _logger = logger;
@@ -40,7 +40,30 @@ namespace Laboratorium3.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create(Contact contact)
+        {
+            if (ModelState.IsValid)
+            {
+                _phoneBook.Add(contact);
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+        public IActionResult Delete(int id)
+        {
+            bool removed = _phoneBook.Remove(id);
+            if (!removed){
+                return View("NotFound");
 
-        
+                // return NotFound(); // Zwraca kod 404, jeśli identyfikator nie istnieje
+            }
+            return RedirectToAction("Index");
+
+        }
     }
 }

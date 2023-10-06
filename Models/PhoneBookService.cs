@@ -71,6 +71,23 @@ namespace Laboratorium3.Models
         {
             return contacts;
         }
+        public void Add(Contact contact)
+        {
+            contact.Id = contacts.Max(x => x.Id) + 1;
+            contacts.Add(contact);
+        }
+        public bool Remove(int id)
+        {
+            Contact toDelete = contacts.FirstOrDefault(x => x.Id == id);
+
+            if (toDelete != null)
+            {
+                return contacts.Remove(toDelete);
+            }
+
+            return false; // Return false to indicate that the contact with the given id was not found.
+        }
+
     }
 
 }

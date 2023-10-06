@@ -55,3 +55,20 @@ automatycznie tworzonego obiektu klasy PhoneBookService należy zmodyfikować je
 konstruktor – dodaj, aby oczekiwany był obiekt klasy PhoneBookService i zapisz
 przekazany obiekt do prywatnego pola kontrolera.
 ```
+
+# Zadanie 7 - Views + Controller
+```
+Dodawanie formularza do dodawania nowych kontaktów
+```
+
+# Zadanie 8 - Delete
+```
+Dowawanie usuwania kontaktów
+```
+
+# Zadanie 9 - 404
+```
+Zabezpiecz usuwanie przed próbą wprowadzenia nie istniejącego id:
+/Home/Delete/123
+/Home/Delete/asd
+```
