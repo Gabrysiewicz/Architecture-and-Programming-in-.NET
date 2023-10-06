@@ -39,3 +39,19 @@ w odpowiedni sposób.
 Usuń plik Views/Home/Index.cshtml, ponieważ będziemy generować go
 z wykorzystaniem generatora.
 ```
+
+# Zadanie 5 - Model
+```
+Dane do prezentowania w widoku w typowych aplikacjach pobierane są z innych
+systemów informatycznych lub przede wszystkim z systemów baz danych. W tym
+laboratorium zbudujemy fikcyjne źródło danych oparte o listę. W folderze Models utwórz
+nową klasę, PhoneBookService i wypełnij ją następującą zawartością: ...
+```
+
+# Zadanie 6 - Access to Services
+```
+Aby zdefiniować, że kontroler HomeController będzie uzyskiwał dostęp do
+automatycznie tworzonego obiektu klasy PhoneBookService należy zmodyfikować jego
+konstruktor – dodaj, aby oczekiwany był obiekt klasy PhoneBookService i zapisz
+przekazany obiekt do prywatnego pola kontrolera.
+```
