@@ -1,0 +1,16 @@
+﻿@model int
+@{
+    int max = 5;
+}
+
+@for (int i = 0; i < max; i++)
+{
+    if (i < Model)
+    {
+        @Html.Raw("&#x2605;") <!-- Render a filled star -->
+    }
+    else
+    {
+        @Html.Raw("&#x2606;") <!-- Render an empty star -->
+    }
+}
