@@ -25,7 +25,17 @@ Spróbuj opracować taki kod, który wyświetli liczbę losową z czerwonym tłe
 liczba będzie większa niż 0,5.
 ```
 
-# Zadanie 4 - To Do
+# Zadanie 4 - Scaffolding
 ```
+W folderze Models dodaj nową klasę, która powinna być utworzona w przestrzeni
+nazw z przyrostkiem .Models (np. Lab3.Models). Klasa ta będzie nazywać się Contact
+i będzie przechowywać dane osobowe.
 
+Oprócz właściwości Id, dodaj kolejne: Name, Surname, Email, City oraz
+PhoneNumber, wszystkie typu string. Każdą z nich opatrz także atrybutem DisplayName,
+który ją nazwie w sposób zrozumiały dla użytkownika – np. „Imię”, „Nazwisko” i tak dalej.
+Automatyczny generator wykorzysta ten mechanizm, aby wygenerować tabelę i formularze
+w odpowiedni sposób.
+Usuń plik Views/Home/Index.cshtml, ponieważ będziemy generować go
+z wykorzystaniem generatora.
 ```
