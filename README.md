@@ -36,7 +36,12 @@ Wyświetlanie ratingu zostało zastąpione gwiazdkami,
 został dodany template dla rating.
 ```
 
-# Zadanie 7  - 
+# Zadanie 7  - Wyświetlanie trailera jako link
+```
+Dodano taki <a href=""> w wymaganych miejscach
+```
+
+# Zadanie 8 - Wyświetlanie trailera
 ```
 
 ```

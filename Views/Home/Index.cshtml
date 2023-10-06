@@ -40,7 +40,14 @@
                 @Html.DisplayFor(modelItem => item.Rating)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TrailerLink)
+                @if (!string.IsNullOrEmpty(item.TrailerLink))
+                {
+                    <a href="@Html.DisplayFor(modelItem => item.TrailerLink)">Trailer</a>
+                }
+                else
+                {
+                    <span>No link provided</span>
+                }
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
