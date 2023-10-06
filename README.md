@@ -32,5 +32,11 @@ https://techfunda.com/howto/408/textarea-with-html-editorfor
 
 # Zadanie 6 - Zmiana formy wyświetlania danych
 ```
+Wyświetlanie ratingu zostało zastąpione gwiazdkami,
+został dodany template dla rating.
+```
+
+# Zadanie 7  - 
+```
 
 ```
