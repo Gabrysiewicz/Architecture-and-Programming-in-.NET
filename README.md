@@ -6,7 +6,12 @@
 NuGet: Sqlite 6.0.22
 ```
 
-# Zadanie 2 - 
+# Zadanie 2 - Movie class + MoviesDbContext
+```
+Utworzono klasę reprezentującą filmy oraz klasę odpowiedzialną za relacje z bazą danych 
+```
+
+# Zadanie 3 - Database connection
 ```
 
 ```
