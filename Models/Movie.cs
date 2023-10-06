@@ -6,10 +6,16 @@ namespace Laboratorium5.Models
     public class Movie
     {
         [Key]
-        private int Id;
-        private string Title;
-        private string Description;
-        private int Rating;
-        private string TrailerLink;
+        public int Id { get; set; }
+
+        [Required]
+        public string Title { get; set; }
+        
+        [Required]
+        public string Description { get; set; }
+
+        public int Rating { get; set; }
+
+        public string TrailerLink { get; set; }
     }
 }
