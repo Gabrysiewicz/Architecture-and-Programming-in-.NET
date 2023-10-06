@@ -2,7 +2,15 @@
 
 # Zadanie 1 - Utworzenie projektu
 ```
-
+Razor Pages
 ```
 
-# Zadanie 2 - TODO
+# Zadanie 2 - Wyświetlanie obrazów z 'servera'
+```
+Model index został zmodyfikowany aby obsługiwać ścieżki zależne od OS, oraz zostało dodane wyświetlanie nazw plików w katalogu /wwwroot/images
+```
+
+# Zadanie 3 - Wysyłanie plików na server
+```
+TODO
+```
