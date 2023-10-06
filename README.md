@@ -13,5 +13,11 @@ Utworzono klasę reprezentującą filmy oraz klasę odpowiedzialną za relacje z
 
 # Zadanie 3 - Database connection
 ```
+Modyfikacja secrets.json,
+oraz dodanie zależności w Program.cs
+```
+
+# Zadanie 4 - Generowanie kontrolera
+```
 
 ```

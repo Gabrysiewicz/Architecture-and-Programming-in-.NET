@@ -1,7 +1,12 @@
+using Laboratorium5.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<MoviesDbContext>( options => options.UseSqlite( builder.Configuration.GetConnectionString("Default")));
 
 var app = builder.Build();
 
