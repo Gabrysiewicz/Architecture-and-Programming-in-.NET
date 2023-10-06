@@ -72,3 +72,9 @@ Zabezpiecz usuwanie przed próbą wprowadzenia nie istniejącego id:
 /Home/Delete/123
 /Home/Delete/asd
 ```
+
+# Final Commit 
+```
+Zadanie 3:
+Welcome text z losowymi liczbami oraz kolorowaniem tych wyników został dodany do treści z zadania 9
+```

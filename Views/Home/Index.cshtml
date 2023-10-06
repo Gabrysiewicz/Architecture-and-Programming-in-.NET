@@ -3,6 +3,20 @@
 @{
     ViewData["Title"] = "Index";
 }
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @DateTime.Now.ToString("dddd"),
+    @DateTime.Now.Day    @DateTime.Now.ToString("MMMM")    @DateTime.Now.Year
+
+    @if (Convert.ToDouble(ViewData["random"]) > 0.5)
+    {
+        <p style="background-color: red;"> @ViewData["random"] </p>
+    }
+    else
+    {
+        <p style="background-color: green;"> @ViewData["random"] </p>
+    }
+</div>
 
 <h1>Index</h1>
 
