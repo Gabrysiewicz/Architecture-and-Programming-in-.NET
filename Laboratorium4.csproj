@@ -8,6 +8,18 @@
 
   <ItemGroup>
     <PackageReference Include="Magick.NET-Q8-AnyCPU" Version="13.3.0" />
+    <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\watermark\watermark.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\gallery\" />
   </ItemGroup>
 
 </Project>

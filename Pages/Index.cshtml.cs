@@ -1,5 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Hosting;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace Laboratorium4.Pages
 {
@@ -13,19 +18,20 @@ namespace Laboratorium4.Pages
         public IndexModel(ILogger<IndexModel> logger, IWebHostEnvironment environment)
         {
             _logger = logger;
-            imagesDir = Path.Combine(environment.WebRootPath, "images");
+            imagesDir = Path.Combine(environment.WebRootPath, "gallery"); // Make sure this points to "gallery"
         }
 
         public void OnGet()
         {
             UpdateFileList();
         }
+
         public void UpdateFileList()
         {
-            Images = new List<string>();            
+            Images = new List<string>();
             foreach (var item in Directory.EnumerateFiles(imagesDir).ToList())
             {
-                Images.Add( Path.GetFileName(item) );
+                Images.Add(Path.GetFileName(item));
             }
         }
     }

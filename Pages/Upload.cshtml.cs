@@ -1,65 +1,67 @@
-﻿using ImageMagick;
+﻿using System;
+using System.IO;
+using ImageMagick;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System;
-using System.IO;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace Laboratorium4.Pages
 {
     public class UploadModel : PageModel
     {
-        [BindProperty]
-        public IFormFile Upload { get; set; }
+        private readonly IWebHostEnvironment _environment;
 
-        private string imagesDir;
-
-        public string LogMessage { get; set; } // Property to store log messages
-
-        public UploadModel( IWebHostEnvironment environment)
+        public UploadModel(IWebHostEnvironment environment)
         {
-            imagesDir = Path.Combine(environment.WebRootPath, "images");
+            _environment = environment;
         }
+
+        [BindProperty]
+        public IFormFile Image { get; set; }
 
         public void OnGet()
         {
         }
+
         public IActionResult OnPost()
         {
-            if (Upload != null)
+            if (Image != null && Image.Length > 0)
             {
-                string extension = ".jpg";
-                switch (Upload.ContentType)
+                var uploadsDirectory = Path.Combine(_environment.WebRootPath, "images");
+
+                if (!Directory.Exists(uploadsDirectory))
                 {
-                    case "image/png":
-                        extension = ".png";
-                        break;
-                    case "image/gif":
-                        extension = ".gif";
-                        break;
+                    Directory.CreateDirectory(uploadsDirectory);
                 }
-                var fileName =
-                Path.GetFileNameWithoutExtension(Path.GetRandomFileName()) +
-                extension;
-                using (var fs =
-                System.IO.File.OpenWrite(Path.Combine(imagesDir, fileName)))
+
+                var uniqueFileName = Guid.NewGuid().ToString() + "_" + Image.FileName;
+                var filePath = Path.Combine(uploadsDirectory, uniqueFileName);
+                var watermarkDir = Path.Combine(_environment.WebRootPath, "watermark");
+                var watermarkPath = Path.Combine(watermarkDir, "watermark.png");
+                var galleryDir = Path.Combine(_environment.WebRootPath, "gallery");
+                var galleryPath = Path.Combine(galleryDir, uniqueFileName);
+                using (var stream = new FileStream(filePath, FileMode.Create))
                 {
-                    using var image = new MagickImage(fs);
-                    using var watermark = new MagickImage("watermark.png");
+                    Image.CopyTo(stream);
+
+                    using var image = new MagickImage(filePath);
+                    using var watermark = new MagickImage(watermarkPath);
                     // przezroczystosc znaku wodnego
-                    watermark.Evaluate(Channels.Alpha, EvaluateOperator.Divide, 4);
+                    watermark.Evaluate(Channels.Alpha, EvaluateOperator.Divide, 2);
                     // narysowanie znaku wodnego
-                    image.Composite(watermark, Gravity.Southeast,
-                    CompositeOperator.Over);
-                    image.Write(path);
+                    image.Composite(watermark, Gravity.Southeast, CompositeOperator.Over);
+                    var galleryStream = new FileStream(galleryPath, FileMode.Create);
+                    image.Write(galleryStream);
 
-                    Upload.CopyTo(fs);
                 }
-            }
-            return RedirectToPage("Index");
-        }
 
+                // Optionally, you can save the file path to a database or do other processing here.
+
+                return RedirectToPage("/Index");
+            }
+
+            return Page();
+        }
     }
 }

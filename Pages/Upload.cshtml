@@ -2,7 +2,11 @@
 @model Laboratorium4.Pages.UploadModel
 @{
 }
-<form asp-page="Upload" method="post" enctype="multipart/formdata">
-    <input class="form-control" asp-for="Upload" type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" />
-    <input class="form-control" type="submit" value="Upload" />
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="image">Choose an image:</label>
+        <input type="file" name="image" id="image" accept="image/*" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
 </form>

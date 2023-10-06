@@ -35,8 +35,14 @@ posiada hiperłącze do wyświetlenia tego konkretnego obrazu w pełnej rozdziel
 
 # Zadanie 7 - Watermarks
 ```
-TODO
+Obraz watermark.png jest wykorzystywany w celu dodania watermark'a przesyłanym obrazom
 ```
 
-# TODO
-WATERMARKS + WYSYŁANIE NA SERWER
+# Important
+```
+Miałem problem z wysyłaniem plików na server z wykorzystaniem kodu z zadania, dlatego zmodyfikowałem zadanie.
+W moim przypadku istnieją 3 katalogi:
+- images (Zdjęcia bez watermark)
+- gallery (Zdjęcia z watermark, te są wyświetlane na stronie)
+- watermark (posiada tylko i wyłącznie watermark.png)
+```

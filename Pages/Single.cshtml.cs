@@ -11,7 +11,7 @@ namespace Laboratorium4.Pages
         private string imagesDir;
         public SingleModel(IWebHostEnvironment environment)
         {
-            imagesDir = Path.Combine(environment.WebRootPath, "images");
+            imagesDir = Path.Combine(environment.WebRootPath, "gallery");
 
         }
         public IActionResult OnGet()
