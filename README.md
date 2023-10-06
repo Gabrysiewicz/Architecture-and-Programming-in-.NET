@@ -19,5 +19,18 @@ oraz dodanie zależności w Program.cs
 
 # Zadanie 4 - Generowanie kontrolera
 ```
+Kontroller dla klasy movie został wygenerowany automatycznie,
+oraz zostały wprowadzone migracje
+```
+
+# Zadanie 5 - Zmiana formy wprowadzania danych
+```
+Po utworzeniu template oraz modyfikacji atrybutu description w modelu zaczeło działać 
+aczkolwiek można to też zrealizować bez template:
+https://techfunda.com/howto/408/textarea-with-html-editorfor
+```
+
+# Zadanie 6 - Zmiana formy wyświetlania danych
+```
 
 ```
