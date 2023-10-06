@@ -22,7 +22,12 @@ Oraz metoda OnPost()
 <a asp-page="Upload">Upload new file...</a>
 ```
 
-# Zadanie 5 - Wysyłanie plików na server
+# Zadanie 5 - Wyświetlanie obrazów
+```
+Zamiast nazw plików wyświetlane są obrazy jeden pod drugim, na środku strony.
+```
+
+# Zadanie 6 - 
 ```
 TODO
 ```

@@ -16,3 +16,22 @@ html {
 body {
   margin-bottom: 60px;
 }
+#gallery{
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+}
+#upload-image{
+    padding: 15px;
+    text-decoration: none;
+    background-color: blue;
+    border-radius: 5px;
+    color:white;
+    transition: ease 2s;
+}
+#upload-image:hover {
+    box-shadow: blue 0px 0px 5px;
+    border-radius: 15px;
+    background-color: white;
+    color:black;
+}

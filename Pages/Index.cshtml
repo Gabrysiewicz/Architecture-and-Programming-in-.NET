@@ -6,11 +6,15 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <a asp-page="Upload">Upload new file...</a><br />
+    <a asp-page="Upload" id="upload-image">Upload new file</a><br /><br />
+    
+    
+    <main id="gallery">
     @foreach (var item in Model.Images)
     {
-        @item
+        <div>
+            <partial name="_Image" model="item" />
+        </div>
     }
-
-
+    </main>
 </div>
