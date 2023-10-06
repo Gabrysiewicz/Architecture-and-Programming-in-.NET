@@ -43,5 +43,5 @@ Dodano taki <a href=""> w wymaganych miejscach
 
 # Zadanie 8 - Wyświetlanie trailera
 ```
-
+Trailer jest wyświetlany w widoku details za pośrednictwem www.youtube.com/ember/{youtubeID}
 ```
