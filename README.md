@@ -17,7 +17,12 @@ Został dodany formularz do obsługi dodawanie plików.
 Oraz metoda OnPost()
 ```
 
-# Zadanie 4 - Wysyłanie obrazów
+# Zadanie 4 - Dodanie przycisku do podstrony z formularzem
+```
+<a asp-page="Upload">Upload new file...</a>
+```
+
+# Zadanie 5 - Wysyłanie plików na server
 ```
 TODO
 ```
