@@ -13,9 +13,9 @@ namespace Laboratorium5.Models
         
         [Required]
         public string Description { get; set; }
-
-        public int Rating { get; set; }
-
-        public string TrailerLink { get; set; }
+        // Nullable / Unrequired
+        public int? Rating { get; set; }
+        // Nullable / Unrequired
+        public string? TrailerLink { get; set; }
     }
 }
