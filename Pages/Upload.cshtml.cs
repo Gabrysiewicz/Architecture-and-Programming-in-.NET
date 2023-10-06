@@ -1,4 +1,4 @@
-using ImageMagick;
+﻿using ImageMagick;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
@@ -15,6 +15,7 @@ namespace Laboratorium4.Pages
         public IFormFile Upload { get; set; }
 
         private string imagesDir;
+
         public string LogMessage { get; set; } // Property to store log messages
 
         public UploadModel( IWebHostEnvironment environment)
@@ -45,6 +46,15 @@ namespace Laboratorium4.Pages
                 using (var fs =
                 System.IO.File.OpenWrite(Path.Combine(imagesDir, fileName)))
                 {
+                    using var image = new MagickImage(fs);
+                    using var watermark = new MagickImage("watermark.png");
+                    // przezroczystosc znaku wodnego
+                    watermark.Evaluate(Channels.Alpha, EvaluateOperator.Divide, 4);
+                    // narysowanie znaku wodnego
+                    image.Composite(watermark, Gravity.Southeast,
+                    CompositeOperator.Over);
+                    image.Write(path);
+
                     Upload.CopyTo(fs);
                 }
             }

@@ -37,3 +37,6 @@ posiada hiperłącze do wyświetlenia tego konkretnego obrazu w pełnej rozdziel
 ```
 TODO
 ```
+
+# TODO
+WATERMARKS + WYSYŁANIE NA SERWER
