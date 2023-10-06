@@ -1,2 +1,4 @@
 ﻿@model string
-<img src="~/images/@Model" width="300" class="img-thumbnail" />
+<a asp-page="Single" asp-route-image="@Model">
+    <img src="~/images/@Model" width="300" class="img-thumbnail" />
+</a>

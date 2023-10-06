@@ -27,7 +27,13 @@ Oraz metoda OnPost()
 Zamiast nazw plików wyświetlane są obrazy jeden pod drugim, na środku strony.
 ```
 
-# Zadanie 6 - 
+# Zadanie 6 - Wyświetlanie pojedyńczego obrazu
+```
+Został dodany widok pojedyńczego obrazu oraz każdy obraz z galeri 
+posiada hiperłącze do wyświetlenia tego konkretnego obrazu w pełnej rozdzielczości
+```
+
+# Zadanie 7 - Watermarks
 ```
 TODO
 ```
