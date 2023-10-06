@@ -7,10 +7,17 @@ Razor Pages
 
 # Zadanie 2 - Wyświetlanie obrazów z 'servera'
 ```
-Model index został zmodyfikowany aby obsługiwać ścieżki zależne od OS, oraz zostało dodane wyświetlanie nazw plików w katalogu /wwwroot/images
+Model index został zmodyfikowany aby obsługiwać ścieżki zależne od OS,
+oraz zostało dodane wyświetlanie nazw plików w katalogu /wwwroot/images
 ```
 
-# Zadanie 3 - Wysyłanie plików na server
+# Zadanie 3 - Formularz z dodawaniem obrazów
+```
+Został dodany formularz do obsługi dodawanie plików.
+Oraz metoda OnPost()
+```
+
+# Zadanie 4 - Wysyłanie obrazów
 ```
 TODO
 ```
