@@ -20,7 +20,7 @@ namespace Laboratorium4.Pages
         {
             UpdateFileList();
         }
-        private void UpdateFileList()
+        public void UpdateFileList()
         {
             Images = new List<string>();            
             foreach (var item in Directory.EnumerateFiles(imagesDir).ToList())
