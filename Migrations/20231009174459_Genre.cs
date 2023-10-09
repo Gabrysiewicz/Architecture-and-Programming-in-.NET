@@ -13,7 +13,7 @@ namespace Laboratorium5.Migrations
                 table: "Movies",
                 type: "INTEGER",
                 nullable: false,
-                defaultValue: 0);
+                defaultValue: 1);
 
             migrationBuilder.CreateTable(
                 name: "Genres",
@@ -27,6 +27,13 @@ namespace Laboratorium5.Migrations
                 {
                     table.PrimaryKey("PK_Genres", x => x.Id);
                 });
+            
+            migrationBuilder.InsertData(
+                "Genres",
+                new string[] { "Id", "Name" },
+                new object[] { "1", "unknown" }
+            );
+
 
             migrationBuilder.CreateIndex(
                 name: "IX_Movies_GenreId",

@@ -1,0 +1,26 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Laboratorium5.Models
+{
+    public class MovieDto
+    {
+        [Key]
+        public int Id { get; set; }
+        
+        [Required(ErrorMessage = "Tytuł jest wymagany")]
+        [MaxLength(50)]
+        public string Title { get; set; }
+        
+        [UIHint("LongText")]
+        [Required(ErrorMessage = "Opis jest wymagany")]
+        public string Description { get; set; }
+
+        public string Genre { get; set; }
+
+        [UIHint("Stars")]
+        [Range(0, 5, ErrorMessage = "Ocena filmu musi być liczbą pomiędzy 0 a 5")]
+        public int Rating { get; set; }
+        public string? TrailerLink { get; set; }
+        
+    }
+}

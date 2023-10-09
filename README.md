@@ -59,5 +59,68 @@ dotnet ef migrations add Genre
 
 # Zadanie 5 - Modyfikacja migracji Genre
 ```
+Migracje generowane są jako klasy w folderze Migrations/. Znajdź plik migracji
+o nazwie „Genre”, jego nazwa pliku będzie miała postać „data_Genre.cs”. W pliku tym,
+w metodzie Up() zmodyfikuj domyślną wartość dodawanej kolumny GenreId na 1.
+Następnie, po poleceniu tworzenia tabeli Genres (postaci
+migrationBuilder.CreateTable(name: "Genres", …) dodaj ręczne dodawanie danych:
 
+migrationBuilder.InsertData(
+	"Genres",
+	new string[] { "Id", "Name" },
+	new object[] { "1", "unknown" }
+);
+
+Teraz, możesz już wykonać aktualizację bazy danych do nowego schematu, wydając
+komendę:
+
+dotnet ef database update
+
+A w jej wyniku wszystkie filmy, które nie miały przypisanego gatunku uzyskają
+gatunek „unknown”.
+Możesz uruchomić aplikację, ale możesz zauważyć, że nie działa ona poprawnie,
+ponieważ formularz dodawania nowego filmu i edycji starego nie działają, a gatunek filmowy
+nie jest nigdzie wyświetlany.
+
+```
+
+# Zadanie 6 - Wyświetlanie gatunku filmowego na liście
+```
+Zmodyfikuj widok Views/Home/Index.cshtml dodając jeszcze jedną kolumnę
+w nagłówku tabeli na przedostatnim miejscu:
+
+<th>
+  @Html.DisplayNameFor(model => model.Genre)
+</th>
+  Oraz wypełniając ją zawartością wewnątrz pętli foreach:
+<td>
+  @Html.DisplayFor(modelItem => item.Genre.Name)
+</td>
+
+Niezbędne jest jednak przekazanie do widoku modelu danych, który będzie zawierał
+wypełnioną wartość Genre, jako, że domyślnie nie jest pobierana z bazy danych (lazy
+loading).
+W kontrolerze HomeController, w metodzie Index, zmodyfikuj wybieranie
+wartości z bazy danych, aby uwzględniało także gatunki filmowe:
+
+_context.Movies.Include(x => x.Genre).ToListAsync()
+
+```
+
+# Zadanie 7 - Obsługa dodawania nowego filmu i jego gatunku filmowego
+```
+Możesz zauważyć, że model danych Movie różni się od tego, co chcielibyśmy
+uzyskać – zawiera właściwość typu Genre, podczas gdy chcemy, aby użytkownik miał
+możliwość ręcznego wpisania wartości do pola tekstowego, które zostanie zmapowane na
+istniejący rekord w bazie lub na nowododany rekord. Niezbędne zatem będzie przygotowanie
+innego modelu reprezentującego encję bazodanową oraz obiekt odbierany od użytkownika.
+Takie podejście nazywa się modelami pośrednimi, DTO (Data Transfer Objects) lub czasami
+używane jest określenie ViewModel na wzór architektury MVVM w której również istnieją
+takie klasy pośrednie pomiędzy modelem i widokiem.
+Przygotuj nową klasę, MovieDto, która będzie prawie identyczna jak klasa Movie
+```
+
+# Zadanie 8 - Wykorzystanie elementu <datalist> do tworzenia podpowiedzi
+```
+TODO
 ```

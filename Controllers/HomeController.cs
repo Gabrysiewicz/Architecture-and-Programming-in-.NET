@@ -23,7 +23,7 @@ namespace Laboratorium5.Controllers
         public async Task<IActionResult> Index()
         {
               return _context.Movies != null ? 
-                          View(await _context.Movies.ToListAsync()) :
+                          View(await _context.Movies.Include(x => x.Genre).ToListAsync()) :
                           Problem("Entity set 'MoviesDbContext.Movies'  is null.");
         }
 
@@ -56,15 +56,36 @@ namespace Laboratorium5.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Description,Rating,TrailerLink")] Movie movie)
+        //public async Task<IActionResult> Create([Bind("Id,Title,Description,Rating,TrailerLink")] Movie movie)
+        //{
+        public async Task<IActionResult> Create([Bind("Id,Title,Description,Rating,TrailerLink,Genre")] MovieDto movie)
         {
+            /*
             if (ModelState.IsValid)
             {
                 _context.Add(movie);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(movie);
+            */
+            var genre = _context.Genres.FirstOrDefault(x => x.Name == movie.Genre);
+            if (genre == null){
+                genre = new Genre { Id = 0, Name = movie.Genre };
+            }
+            Movie m = new Movie{
+                Id = 0,
+                Title = movie.Title,
+                Description = movie.Description,
+                Rating = movie.Rating,
+                TrailerLink = movie.TrailerLink,
+                Genre = genre
+            };
+            _context.Add(m);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Home/Edit/5
