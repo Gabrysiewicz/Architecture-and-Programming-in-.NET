@@ -1,47 +1,29 @@
-# Laboratorium 5
+# Laboratorium 6
 
-# Zadanie 1 - Przygotowanie projektu
+# Zadanie 1 - Dodawanie ograniczeń do pól modelu
 ```
-.NET ASP MVC
-NuGet: Sqlite 6.0.22
-```
-
-# Zadanie 2 - Movie class + MoviesDbContext
-```
-Utworzono klasę reprezentującą filmy oraz klasę odpowiedzialną za relacje z bazą danych 
-```
-
-# Zadanie 3 - Database connection
-```
-Modyfikacja secrets.json,
-oraz dodanie zależności w Program.cs
+Ograniczenia w stosunku do pól dodawane są za pomocą atrybutów, takich jak
+[Required], [Range(min, max)] lub [MaxLength(liczba)] w podobny sposób, jak
+w Laboratorium 5 wykorzystywany był atrybut [UIHint].
+Zmodyfikuj plik Movie.cs z folderu Movies/ i dodaj do niego ograniczenia:
+• właściwość Title ma być wymagana i mieć co najwyżej 50 znaków,
+• właściwość Description ma być wymagana,
+• właściwość Rating ma mieć zakres od 1 do 5.
 ```
 
-# Zadanie 4 - Generowanie kontrolera
+# Zadanie 2 - Własne opisy błędów
 ```
-Kontroller dla klasy movie został wygenerowany automatycznie,
-oraz zostały wprowadzone migracje
-```
-
-# Zadanie 5 - Zmiana formy wprowadzania danych
-```
-Po utworzeniu template oraz modyfikacji atrybutu description w modelu zaczeło działać 
-aczkolwiek można to też zrealizować bez template:
-https://techfunda.com/howto/408/textarea-with-html-editorfor
+Aby zastosować własny komunikat błędu, możesz ustawić właściwość
+ErrorMessage atrybutu walidacji, na przykład tak:
+	[UIHint("Stars")]
+	[Range(1, 5, ErrorMessage = "Ocena filmu musi być liczbą pomiędzy 1 a 5")]
+	public int Rating { get; set; }
+Spróbuj zmodyfikować aplikację tak, aby wyświetlane były własne komunikaty
+błędów dla wszystkich pól.
 ```
 
-# Zadanie 6 - Zmiana formy wyświetlania danych
+# Zadanie 3 - Walidacja po stronie klienta
 ```
-Wyświetlanie ratingu zostało zastąpione gwiazdkami,
-został dodany template dla rating.
-```
-
-# Zadanie 7  - Wyświetlanie trailera jako link
-```
-Dodano taki <a href=""> w wymaganych miejscach
+todo
 ```
 
-# Zadanie 8 - Wyświetlanie trailera
-```
-Trailer jest wyświetlany w widoku details za pośrednictwem www.youtube.com/ember/{youtubeID}
-```
