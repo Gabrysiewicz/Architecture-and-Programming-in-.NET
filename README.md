@@ -30,6 +30,34 @@ data-val-* były zarówno z jQuery jak i bez
 
 # Zadanie 4 - Dodawanie kolejnej tabeli oraz relacji pomiędzy tabelami w bazie danych
 ```
+Należy zacząć od dodania nowego modelu danych – dodaj nową publiczną klasę w
+folderze Models/ o nazwie Genre, która będzie posiadać dwie właściwości – Id oraz Name.
+
+public class Genre
+{
+    [Key]
+    public int Id { get; set; }
+    public string Name { get; set; }
+}
+
+W klasie kontekstu danych, MovieDbContext, dodaj odwołanie do tabel
+bazodanowej gatunków filmowych dodając właściwość:
+
+public DbSet<Genre> Genres { get; set; }
+
+Następnie, w klasie Movie dodaj odwołanie do gatunku filmowego, dodając
+właściwość:
+
+public Genre Genre { get; set; }
+
+Jak się domyślasz, należy przeprowadzić migrację bazy danych, ponieważ model
+danych uległ zmianie. Otwórz terminal i wydaj komendę:
+
+dotnet ef migrations add Genre
 
 ```
 
+# Zadanie 5 - Modyfikacja migracji Genre
+```
+
+```

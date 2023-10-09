@@ -15,7 +15,9 @@ namespace Laboratorium5.Models
         [Required(ErrorMessage = "Opis jest wymagany")]
         [UIHint("LongText")]
         public string Description { get; set; }
-        
+
+        public Genre Genre { get; set; }
+
         [UIHint("Stars")]
         [Range(0, 5, ErrorMessage = "Ocena filmu musi być liczbą pomiędzy 0 a 5" )]
         public int? Rating { get; set; }                // Nullable / Unrequired
