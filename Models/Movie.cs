@@ -7,7 +7,7 @@ namespace Laboratorium5.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Opis jest wymagany")]
         [MaxLength(50, ErrorMessage = "Maksymalna długość 50 znaków" )]
         public string Title { get; set; }
 

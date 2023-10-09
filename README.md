@@ -24,6 +24,12 @@ błędów dla wszystkich pól.
 
 # Zadanie 3 - Walidacja po stronie klienta
 ```
-todo
+Chyba działa
+data-val-* były zarówno z jQuery jak i bez
+```
+
+# Zadanie 4 - Dodawanie kolejnej tabeli oraz relacji pomiędzy tabelami w bazie danych
+```
+
 ```
 
