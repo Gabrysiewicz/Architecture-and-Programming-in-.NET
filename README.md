@@ -157,4 +157,9 @@ return View(m);
 ```
 Spróbuj uruchomić swoją aplikację aby przetestować jej działanie
 
+# Zadanie 9 - Zadanie 8 ale dla edycji
 
+<p color="red">
+	Poddaje się, nie jestem aktualnie w stanie tego zrobić, coś mi niedziała, błąd za błedem.
+	Rozwiązanie tego mogłoby wymagać odemnie przepisanie zadania w inny sposób
+</p>
