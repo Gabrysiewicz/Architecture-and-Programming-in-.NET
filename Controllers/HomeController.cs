@@ -48,8 +48,13 @@ namespace Laboratorium5.Controllers
         // GET: Home/Create
         public IActionResult Create()
         {
-            return View();
+            var m = new MovieDto
+            {
+                AllGenres = _context.Genres.Select(x => x.Name).ToList()
+            };
+            return View(m);
         }
+
 
         // POST: Home/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.

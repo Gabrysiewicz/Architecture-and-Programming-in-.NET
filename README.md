@@ -121,6 +121,40 @@ Przygotuj nową klasę, MovieDto, która będzie prawie identyczna jak klasa Mov
 ```
 
 # Zadanie 8 - Wykorzystanie elementu <datalist> do tworzenia podpowiedzi
+Chcemy, aby użytkownik miał możliwość wybrania już istniejącego elementu z listy
+gatunków, który zostanie mu lub jej podpowiedziany po wprowadzeniu fragmentu tekstu do
+pola typu <input>. Można tutaj wykorzystać element <datalist> ze standardu HTML5.
+Niezbędne jest jednak przekazanie wszystkich obecnych w bazie gatunków filmowych do
+generowania tej listy.
+Dodaj do klasy MovieDto jeszcze jedną właściwość:
+public List<string>? AllGenres { get; set; }
+Następnie zmodyfikuj widok Views/Home/Create.cshtml, aby generował element
+<datalist> wewnątrz elementu <div> w którym znajduje się <input> dla Genre za
+pomocą następującego podejścia:
 ```
-TODO
+<datalist id="genres">
+@foreach (var item in Model.AllGenres)
+{
+@Html.Raw($"<option value=\"{item}\">")
+}
+</datalist>
 ```
+Wreszcie, dodaj do elementu <input> dla Genre atrybut list wskazujący na
+element <datalist>:
+```
+<input asp-for="Genre" class="form-control" list="genres" />
+```
+Ostatnim krokiem będzie wypełnianie listy AllGenres przy generowaniu formularza
+dodawania nowego filmu. W HomeController, w metodzie Create() (wariancie
+nieoznaczonym atrybutem [HttpPost]) możesz to zrealizować w następujący sposób:
+```
+public IActionResult Create()
+{
+var m = new MovieDto { AllGenres =
+_context.Genres.Select(x => x.Name).ToList() };
+return View(m);
+}
+```
+Spróbuj uruchomić swoją aplikację aby przetestować jej działanie
+
+

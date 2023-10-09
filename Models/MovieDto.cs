@@ -16,6 +16,7 @@ namespace Laboratorium5.Models
         public string Description { get; set; }
 
         public string Genre { get; set; }
+        public List<string>? AllGenres { get; set; }
 
         [UIHint("Stars")]
         [Range(0, 5, ErrorMessage = "Ocena filmu musi być liczbą pomiędzy 0 a 5")]
