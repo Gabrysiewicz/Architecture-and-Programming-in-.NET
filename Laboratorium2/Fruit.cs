@@ -12,10 +12,10 @@ namespace Laboratorium2
         // Private fields
         private string name="null";
         private bool isSweet = false;
-        private double price = -1;
+        private decimal price = -1;
 
         // Constructors
-        public Fruit(string name, bool isSweet, double price)
+        public Fruit(string name, bool isSweet, decimal price)
         {
             Name = name;
             IsSweet = isSweet;
@@ -34,7 +34,7 @@ namespace Laboratorium2
             get { return isSweet; }
             set { isSweet = value; }
         }
-        public double Price
+        public decimal Price
         {
             get { return price; }
             set { price = value; }
@@ -47,7 +47,7 @@ namespace Laboratorium2
             return new Fruit{
                 Name = names[r.Next(names.Length)],
                 IsSweet = r.NextDouble() > 0.5,
-                Price = r.NextDouble() * 10
+                Price = (decimal)r.NextDouble() * 10
             };
         }
 
