@@ -44,5 +44,12 @@ Date & Total są wyświetlane z wykorzystaniem lokalizacji (en-us)
 
 # Zadanie 8 - Strona szczegółów zamówienia
 ```
+Ponowna modyfikacja modeli, korekcja typów
+Utworzenie widoku dla OrderDetails
+Obsługa relacji wiele do wielu
+```
+
+# Zadanie 9 - Ograniczenia przeglądania zamówień
+```
 
 ```

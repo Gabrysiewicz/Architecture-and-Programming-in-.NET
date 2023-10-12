@@ -5,7 +5,7 @@ using Laboratorium7b.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging; // Import the appropriate namespace
+using Microsoft.Extensions.Logging;
 using Laboratorium7b.Areas.Identity.Data;
 
 namespace Laboratorium7b.Controllers;
@@ -45,5 +45,17 @@ public class HomeController : Controller
         var user = await _userManager.GetUserAsync(User);
         var customerId = user.CustomerId;
         return View(await _chinook.Invoices.Where(x => x.CustomerId == customerId).ToListAsync());
+    }
+
+    [Authorize]
+    public async Task<IActionResult> OrderDetails(int id)
+    {
+        var user = await _userManager.GetUserAsync(User);
+        var customerId = user.CustomerId;
+        var invoice = _chinook.Invoices
+            .Include(x => x.InvoiceLines)
+            .ThenInclude(x => x.Track)
+            .FirstOrDefault(x => x.InvoiceId == id);
+        return View(invoice);
     }
 }

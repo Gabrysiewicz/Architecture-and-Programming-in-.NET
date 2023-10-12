@@ -37,7 +37,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                <a asp-action="Details" asp-route-id="@item.InvoiceId">
+                    <a asp-action="OrderDetails" asp-route-id="@item.InvoiceId">
                     @Html.DisplayFor(modelItem => item.InvoiceId)
                 </a>
             </td>
@@ -72,7 +72,7 @@
                     @FormatCurrency(item.Total)
             </td>
             <td>
-                <a asp-action="Details" asp-route-id="@item.InvoiceId">Details</a>
+                    <a asp-action="OrderDetails" asp-route-id="@item.InvoiceId">Details</a>
             </td>
         </tr>
 }
