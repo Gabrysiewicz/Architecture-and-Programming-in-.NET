@@ -55,7 +55,14 @@ public class HomeController : Controller
         var invoice = _chinook.Invoices
             .Include(x => x.InvoiceLines)
             .ThenInclude(x => x.Track)
-            .FirstOrDefault(x => x.InvoiceId == id);
-        return View(invoice);
+            .FirstOrDefault(x => x.InvoiceId == id && x.CustomerId == customerId); // Check if order also belongs to customer
+        if (invoice == null)
+        {
+            return Forbid();
+        }
+        else
+        {
+            return View(invoice);
+        }
     }
 }

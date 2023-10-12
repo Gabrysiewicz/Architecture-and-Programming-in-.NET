@@ -51,5 +51,17 @@ Obsługa relacji wiele do wielu
 
 # Zadanie 9 - Ograniczenia przeglądania zamówień
 ```
+OrderDetails dodatkowo sprawdza czy dane zamówienie należy do zalogowanego użytkownika,
+Jeżeli tak nie jest lub szczegóły zamówienia nie istnieją zwracany jest komunikat o braku dostępu:
+ Forbid()
+```
+
+# Zadanie 10 - Zmiana ścieżek w mechanizmie routingu
+```
+Modyfikacja Program.cs
+```
+
+# Zadanie 11 - Widoczność tylko dla osób zalogowanych
+```
 
 ```
