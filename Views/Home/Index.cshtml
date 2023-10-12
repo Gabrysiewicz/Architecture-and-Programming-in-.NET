@@ -1,10 +1,15 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<Laboratorium7b.Areas.Identity.Data.ApplicationUser> SignInManager
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <a asp-action="MyOrders">My Orders</a>
-
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <a asp-action="MyOrders">My Orders</a>
+    }
     <h1 class="display-4">Welcome</h1>
     <table>
         <thead>

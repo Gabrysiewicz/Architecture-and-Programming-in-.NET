@@ -63,5 +63,7 @@ Modyfikacja Program.cs
 
 # Zadanie 11 - Widoczność tylko dla osób zalogowanych
 ```
-
+Metoda pozwalająca na ograniczenie widocznośći dla niezalogowanych użytkowników,
+została wykorzystana w Index.cshtml w sposób identyczny do _LoginPartial.cshtml.
+Tylko zalogowany user widzi link do "My Orders"
 ```
