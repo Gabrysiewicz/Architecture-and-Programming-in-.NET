@@ -33,5 +33,16 @@ Dodawanie oblugi logowania z haslem P@ssw0rd
 
 # Zadanie 6 - Modyfikacja wyświetlania zamówień
 ```
-todo
+Odruchowo wykonałem 50% zadanie 6 w zadaniu 5.
+Zamiast konkatenować address w jeden wielki ciąg, zastosowałem colspan='5' w celu zespojenia danych
+```
+
+# Zadanie 7 - Modyfikacja ustawień regionalnych aplikacji
+```
+Date & Total są wyświetlane z wykorzystaniem lokalizacji (en-us)
+```
+
+# Zadanie 8 - Strona szczegółów zamówienia
+```
+
 ```
