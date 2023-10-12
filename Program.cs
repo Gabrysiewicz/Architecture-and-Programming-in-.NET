@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Laboratorium7b.Data;
 using Laboratorium7b.Areas.Identity.Data;
@@ -43,5 +43,32 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
+
+using (var scope = app.Services.CreateScope())
+{
+    using (var context =
+    scope.ServiceProvider.GetService<ChinookDbContext>())
+    {
+        var userManager =scope.ServiceProvider.GetService<UserManager<ApplicationUser>>();
+        if ( await userManager.FindByEmailAsync(context.Customers.OrderBy(x => x.CustomerId).First().Email) == null)
+        {
+            foreach (var item in context.Customers)
+            {
+                var user = new ApplicationUser
+                {
+                    UserName = item.Email,
+                    NormalizedUserName = item.Email,
+                    Email = item.Email,
+                    NormalizedEmail = item.Email,
+                    EmailConfirmed = true,
+                    LockoutEnabled = false,
+                    SecurityStamp = Guid.NewGuid().ToString(),
+                    CustomerId = item.CustomerId
+                };
+                await userManager.CreateAsync(user,"P@ssw0rd");
+            }
+        }
+    }
+}
 
 app.Run();
