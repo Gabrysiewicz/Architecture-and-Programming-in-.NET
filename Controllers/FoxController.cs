@@ -40,5 +40,25 @@ namespace Laboratorium8.Controllers
             return CreatedAtAction(nameof(Get), new { id = fox.Id }, fox);
         }
 
+        [HttpPut("love/{id}")]
+        public IActionResult Love(int id)
+        {
+            var fox = _repo.Get(id);
+            if (fox == null)
+                return NotFound();
+            fox.Loves++;
+            _repo.Update(id, fox);
+            return Ok(fox);
+        }
+        [HttpPut("hate/{id}")]
+        public IActionResult Hate(int id)
+        {
+            var fox = _repo.Get(id);
+            if (fox == null)
+                return NotFound();
+            fox.Hates++;
+            _repo.Update(id, fox);
+            return Ok(fox);
+        }
     }
 }

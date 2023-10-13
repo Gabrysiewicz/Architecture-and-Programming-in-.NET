@@ -14,3 +14,8 @@ dotnet new webapi --no-https -f net6.0
 ```
 
 ```
+
+## Zadanie 4 - Metody obsługi dodawania „polubień” i „znielubień”
+```
+
+```
