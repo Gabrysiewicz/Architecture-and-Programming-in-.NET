@@ -1,6 +1,7 @@
 ﻿using Amazon.DynamoDBv2.Model;
 using Laboratorium8.Data;
 using Laboratorium8.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -37,7 +38,7 @@ namespace Laboratorium8.Controllers
 
             return Ok(fox);
         }
-        [Authorize]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost]
         public IActionResult Post([FromBody] Fox fox)
         {

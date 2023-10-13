@@ -1,9 +1,12 @@
-using Laboratorium8.Data;
+﻿using Laboratorium8.Data;
 using AspNetCore.Authentication.Basic;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Laboratorium8.Areas.Identity.Data;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("Laboratorium8IdentityDbContextConnection");
@@ -68,6 +71,26 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IFoxesRepository,FoxesRepository>();
 
+// Cookies
+builder.Services
+    .AddAuthentication()
+    .AddCookie()
+    .AddJwtBearer( JwtBearerDefaults.AuthenticationScheme, options => {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Tokens:Issuer"],
+            ValidAudience = builder.Configuration["Tokens:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey( Encoding.UTF8.GetBytes(builder.Configuration["Tokens:Key"])
+            )
+        };
+    }
+);
+builder.Services.AddAuthorization();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -85,5 +108,17 @@ app.UseFileServer(); // wwwroot/index.html as default web page
 
 app.MapControllers();
 app.MapRazorPages();
+
+using (var scope = app.Services.CreateScope()){
+    using (var roleManager = scope.ServiceProvider.GetService<RoleManager<IdentityRole>>())
+    using (var userManager = scope.ServiceProvider.GetService<UserManager<IdentityUser>>())
+    {
+        roleManager.CreateAsync(new IdentityRole("Admin")).Wait();
+        foreach (var user in userManager.Users.Where(x => x.Email.EndsWith("@example.com")))
+        {
+            userManager.AddToRoleAsync(user, "Admin").Wait();
+        }
+    }
+}
 
 app.Run();

@@ -36,12 +36,14 @@ Na tym etapie nie mam pewności czy działa tak jak miało działać
 
 ## Zadanie 4 - Migracja użytkowników
 ```
-
+Add: Program.cs User z email kończącym się na @example.com zostaje dodany do grupy admin
+Add: Obsługa rejestracji przez Api, feat(Register):in HomeController, Class RegistrationDto.cs
 ```
 
 ## Zadanie 5 - Uwierzytelnianie za pomocą tokena
 ```
-
+Edit: Program.cs
+Edit: FoxController.cs
 ```
 
 ## Zadanie 6 - Dostosowywanie reguł bezpieczeństwa
