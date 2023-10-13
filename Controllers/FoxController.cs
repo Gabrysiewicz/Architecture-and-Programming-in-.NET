@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Laboratorium8.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/fox")] // Note: It worked well for Postman with lowercased without that change
     [ApiController]
     public class FoxController : ControllerBase
     {
