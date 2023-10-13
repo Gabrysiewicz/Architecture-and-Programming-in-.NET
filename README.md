@@ -1,42 +1,45 @@
 # Laboratorium 8
 
-## Zadanie 1 - Tworzenie projektu WebAPI
+## Zadanie 1 - Dodawanie ASP.NET Identity do istniejącego projektu
 ```
-dotnet new webapi --no-https -f net6.0
-```
-
-## Zadanie 2 - Dodawanie interfejsu oraz klasy repozytorium danych
-```
-
-```
-
-## Zadanie 3 - Obsługa zwracania i dodawania danych
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 6.0
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 6.0
+dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 6.0
+dotnet add package Microsoft.AspNetCore.Identity.UI --version 6.0
+dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 6.0
+dotnet add package Microsoft.EntityFrameworkCore.Tools --version 6.0
+dotnet aspnet-codegenerator identity -sqlite
 ```
 
+## Zadanie 2 - Dostosowywanie mechanizmu Identity
+```
+Skorzystałem z https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity-configuration?view=aspnetcore-7.0
+
+        options.Password.RequireDigit = false;
+        options.Password.RequireLowercase = false;
+        options.Password.RequireNonAlphanumeric = false;
+        options.Password.RequireUppercase = false;
+        options.Password.RequiredLength = 8;
+        options.Password.RequiredUniqueChars = 0;
 ```
 
-## Zadanie 4 - Metody obsługi dodawania „polubień” i „znielubień”
+## Zadanie 3 - Kontroler dostarczający tokeny dla użytkownika
 ```
 
 ```
 
-## Zadanie 5 - Zmiana i dostosowanie routingu
+## Zadanie 4 - Migracja użytkowników
 ```
 
 ```
 
-## Zadanie 6 - Dodawanie aplikacji klienckiej HTML
+## Zadanie 5 - Uwierzytelnianie za pomocą tokena
+```
+
+```
+
+## Zadanie 6 - Dostosowywanie reguł bezpieczeństwa
 ```
 nie posiadam archiwum wwwroot.zip
 
-```
-
-## Zadanie 7 - Obsługa uwierzytelnienia Basic
-```
-
-```
-
-## Zadanie 8 - Zmiana sortowania obiektów
-```
-TODO
 ```

@@ -6,8 +6,19 @@ using Microsoft.EntityFrameworkCore;
 using Laboratorium8.Areas.Identity.Data;
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("Laboratorium8IdentityDbContextConnection");builder.Services.AddDbContext<Laboratorium8IdentityDbContext>(options =>
-    options.UseSqlite(connectionString));builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+var connectionString = builder.Configuration.GetConnectionString("Laboratorium8IdentityDbContextConnection");
+builder.Services.AddDbContext<Laboratorium8IdentityDbContext>(options =>options.UseSqlite(connectionString));
+builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+    {
+        options.SignIn.RequireConfirmedAccount = true;
+        options.Password.RequireDigit = false;
+        options.Password.RequireLowercase = false;
+        options.Password.RequireNonAlphanumeric = false;
+        options.Password.RequireUppercase = false;
+        options.Password.RequiredLength = 8;
+        options.Password.RequiredUniqueChars = 0;
+    })
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<Laboratorium8IdentityDbContext>();
 
 
