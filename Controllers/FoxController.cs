@@ -38,14 +38,14 @@ namespace Laboratorium8.Controllers
 
             return Ok(fox);
         }
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [Authorize("IsAdminJwt")]
         [HttpPost]
         public IActionResult Post([FromBody] Fox fox)
         {
             _repo.Add(fox);
             return CreatedAtAction(nameof(Get), new { id = fox.Id }, fox);
         }
-
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPut("love/{id}")]
         public IActionResult Love(int id)
         {
@@ -56,6 +56,7 @@ namespace Laboratorium8.Controllers
             _repo.Update(id, fox);
             return Ok(fox);
         }
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPut("hate/{id}")]
         public IActionResult Hate(int id)
         {

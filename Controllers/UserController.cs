@@ -87,6 +87,11 @@ namespace Laboratorium8.Controllers
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                     new Claim(JwtRegisteredClaimNames.Email, user.Email),
                 };
+                // Admin Role is also set in Token
+                foreach (var role in await _user.GetRolesAsync(user))
+                {
+                    claims.Add(new Claim(ClaimTypes.Role, role));
+                }
                 var key = new SymmetricSecurityKey( Encoding.UTF8.GetBytes(_configuration["Tokens:Key"]));
                 var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
                 var token = new JwtSecurityToken(

@@ -7,6 +7,7 @@ using Laboratorium8.Areas.Identity.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.AspNetCore.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("Laboratorium8IdentityDbContextConnection");
@@ -89,7 +90,16 @@ builder.Services
         };
     }
 );
-builder.Services.AddAuthorization();
+// builder.Services.AddAuthorization();
+// The Admin role will be now required for [Authorize("IsAdminJwt")]
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("IsAdminJwt", policy => policy
+        .RequireRole("Admin")
+        .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
+    );
+});
+
 
 var app = builder.Build();
 

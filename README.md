@@ -48,6 +48,12 @@ Edit: FoxController.cs
 
 ## Zadanie 6 - Dostosowywanie reguł bezpieczeństwa
 ```
-nie posiadam archiwum wwwroot.zip
+Edit: FoxController 
+Edit: Program.cs (AddAuthorization)
 
+Regular Token:
+ - Love()
+ - Hate()
+Admin Token:
+ - Add()
 ```
