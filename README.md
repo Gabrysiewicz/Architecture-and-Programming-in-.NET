@@ -25,7 +25,13 @@ Skorzystałem z https://learn.microsoft.com/en-us/aspnet/core/security/authentic
 
 ## Zadanie 3 - Kontroler dostarczający tokeny dla użytkownika
 ```
+dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer --version 6.0
 
+edit: Token configuration appsettings.json
+feat(Token): Delivers JWT tokens
+edit: Properties/launchSettings.json
+
+Na tym etapie nie mam pewności czy działa tak jak miało działać
 ```
 
 ## Zadanie 4 - Migracja użytkowników

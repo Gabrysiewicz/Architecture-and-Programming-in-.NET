@@ -10,6 +10,7 @@
     <PackageReference Include="AspNetCore.Authentication.Basic" Version="6.0.1" />
     <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.7.203.2" />
     <PackageReference Include="LiteDB" Version="5.0.17" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0">

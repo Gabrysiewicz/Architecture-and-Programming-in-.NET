@@ -191,8 +191,7 @@ namespace Laboratorium8.Migrations
                 column: "NormalizedUserName",
                 unique: true);
 
-            migrationBuilder.InsertData(
-            "AspNetRoles",
+            migrationBuilder.InsertData("AspNetRoles",
             new string[] { "Id", "Name", "NormalizedName", "ConcurrencyStamp" },
             new object[]{
                 Guid.NewGuid().ToString(),
