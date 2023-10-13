@@ -10,7 +10,7 @@ dotnet new webapi --no-https -f net6.0
 
 ```
 
-## Zadanie 3 -
+## Zadanie 3 - Obsługa zwracania i dodawania danych
 ```
 
 ```
