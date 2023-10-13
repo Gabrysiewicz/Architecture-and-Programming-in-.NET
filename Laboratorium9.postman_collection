@@ -1,0 +1,276 @@
+{
+	"info": {
+		"_postman_id": "c54ff634-24e0-4d8b-9a35-714cc5f961aa",
+		"name": ".NET Laboratorium 8",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26419728"
+	},
+	"item": [
+		{
+			"name": "Base",
+			"item": [
+				{
+					"name": "GET ALL FOXES",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5016/api/fox",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5016",
+							"path": [
+								"api",
+								"fox"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD NEW FOX",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6ImQ3MzlkNTNlLTcwYTEtNDgxNi1hOTAzLWFiMjA4NzE3ZTYwZCIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTY5NzIzNzM5NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDEwIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo1MDEwIn0.xgxWgQ5Q9928X3Rx5AAkf_6EQ3zFZ1uIKjdtOZhbSO8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 0,\r\n    \"name\": \"Fox By admin token\",\r\n    \"loves\": 0,\r\n    \"hates\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5010/api/fox",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5010",
+							"path": [
+								"api",
+								"fox"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET PARTICULAR FOX",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5010/api/fox/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5010",
+							"path": [
+								"api",
+								"fox",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "INCREASE LOVE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5010/api/fox/love/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5010",
+							"path": [
+								"api",
+								"fox",
+								"love",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "INCREASE HATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5010/api/fox/hate/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5010",
+							"path": [
+								"api",
+								"fox",
+								"hate",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Login admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"admin@example.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5010/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5010",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login regular",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"regular@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5010/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5010",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@example.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5010/api/user/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5010",
+							"path": [
+								"api",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "New Folder",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJyZWd1bGFyQGdtYWlsLmNvbSIsImp0aSI6Ijk1ODE4MjQ3LTBiOWUtNDZhNS1iZjg4LTE2ZDRhM2U4ODBjNSIsImVtYWlsIjoicmVndWxhckBnbWFpbC5jb20iLCJleHAiOjE2OTcyMzY4MjUsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAxMCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAxMCJ9.76vCCYdNHi-oUyb9T2xrm7Bn6F-WuH1jRNNszrJZOVs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 0,\r\n    \"name\": \"Fox Autentication 3\",\r\n    \"loves\": 0,\r\n    \"hates\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5016/api/fox",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5016",
+							"path": [
+								"api",
+								"fox"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
