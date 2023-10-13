@@ -1,9 +1,14 @@
 using Laboratorium8.Data;
 using AspNetCore.Authentication.Basic;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Laboratorium8.Areas.Identity.Data;
 
 var builder = WebApplication.CreateBuilder(args);
-
+var connectionString = builder.Configuration.GetConnectionString("Laboratorium8IdentityDbContextConnection");builder.Services.AddDbContext<Laboratorium8IdentityDbContext>(options =>
+    options.UseSqlite(connectionString));builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<Laboratorium8IdentityDbContext>();
 
 
 
@@ -60,6 +65,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseRouting();
 // Order for these 2 matters
 app.UseAuthentication();
 app.UseAuthorization();
@@ -67,5 +73,6 @@ app.UseAuthorization();
 app.UseFileServer(); // wwwroot/index.html as default web page
 
 app.MapControllers();
+app.MapRazorPages();
 
 app.Run();
