@@ -1,6 +1,7 @@
 ﻿using Amazon.DynamoDBv2.Model;
 using Laboratorium8.Data;
 using Laboratorium8.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,6 +34,7 @@ namespace Laboratorium8.Controllers
 
             return Ok(fox);
         }
+        [Authorize]
         [HttpPost]
         public IActionResult Post([FromBody] Fox fox)
         {

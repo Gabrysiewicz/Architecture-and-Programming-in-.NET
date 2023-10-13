@@ -33,7 +33,7 @@ nie posiadam archiwum wwwroot.zip
 
 ## Zadanie 7 - Obsługa uwierzytelnienia Basic
 ```
-TODO
+
 ```
 
 ## Zadanie 8 - Zmiana sortowania obiektów
