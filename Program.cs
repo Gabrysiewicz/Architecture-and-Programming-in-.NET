@@ -21,6 +21,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseAuthorization();
 
+app.UseFileServer(); // wwwroot/index.html as default web page
+
 app.MapControllers();
 
 app.Run();

@@ -25,4 +25,18 @@ dotnet new webapi --no-https -f net6.0
 
 ```
 
-## Zadanie 6 - 
+## Zadanie 6 - Dodawanie aplikacji klienckiej HTML
+```
+nie posiadam archiwum wwwroot.zip
+
+```
+
+## Zadanie 7 - Obsługa uwierzytelnienia Basic
+```
+TODO
+```
+
+## Zadanie 8 - Zmiana sortowania obiektów
+```
+TODO
+```
