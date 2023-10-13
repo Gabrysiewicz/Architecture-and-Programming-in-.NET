@@ -4,6 +4,7 @@ using Laboratorium8.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace Laboratorium8.Controllers
 {
@@ -19,7 +20,9 @@ namespace Laboratorium8.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Fox>> Get()
         {
-            var foxes = _repo.GetAll();
+            var foxes = _repo.GetAll()
+                .OrderByDescending(x => x.Loves)
+                .ThenBy(x => x.Hates);
 
             return Ok(foxes);
         }
