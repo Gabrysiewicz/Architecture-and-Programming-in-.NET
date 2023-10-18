@@ -2,20 +2,25 @@
 
 @{
     ViewData["Title"] = "Index";
+    Double localRandom = 0;
+    bool ObjToDouble = Double.TryParse(ViewData["random"].ToString(), out localRandom);
 }
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    @DateTime.Now.ToString("dddd"),
-    @DateTime.Now.Day    @DateTime.Now.ToString("MMMM")    @DateTime.Now.Year
-
-    @if (Convert.ToDouble(ViewData["random"]) > 0.5)
-    {
-        <p style="background-color: red;"> @ViewData["random"] </p>
+    @DateTime.Now.ToString("D")
+    @if(ObjToDouble){
+        @if (localRandom > 0.5)
+        {
+            <p style="background-color: red; color:white;"> @ViewData["random"] </p>
+        }
+        else
+        {
+            <p style="background-color: green; color:white;"> @ViewData["random"] </p>
+        }
+    }else{
+        <p> Conversion Error </p>
     }
-    else
-    {
-        <p style="background-color: green;"> @ViewData["random"] </p>
-    }
+    
 </div>
 
 <h1>Index</h1>
