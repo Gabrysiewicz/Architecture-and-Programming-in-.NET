@@ -1,6 +1,7 @@
 # Ignore these
 bin/
 obj/
+wwwroot/lib
 
 # User Specific
 *.suo
