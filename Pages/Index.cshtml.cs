@@ -18,7 +18,7 @@ namespace Laboratorium4.Pages
         public IndexModel(ILogger<IndexModel> logger, IWebHostEnvironment environment)
         {
             _logger = logger;
-            imagesDir = Path.Combine(environment.WebRootPath, "gallery"); // Make sure this points to "gallery"
+            imagesDir = Path.Combine(environment.WebRootPath, "gallery");
         }
 
         public void OnGet()

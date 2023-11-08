@@ -11,10 +11,25 @@ namespace Laboratorium4.Pages
     public class UploadModel : PageModel
     {
         private readonly IWebHostEnvironment _environment;
-
+        private String uploadsDirectory;
+        private String watermarkDir;
+        private String watermarkPath;
+        private MagickImage watermark;
         public UploadModel(IWebHostEnvironment environment)
         {
             _environment = environment;
+
+            uploadsDirectory = Path.Combine(_environment.WebRootPath, "images");
+            if (!Directory.Exists(uploadsDirectory))
+            {
+                Directory.CreateDirectory(uploadsDirectory);
+            }
+
+            watermarkDir = Path.Combine(_environment.WebRootPath, "watermark");
+            watermarkPath = Path.Combine(watermarkDir, "watermark.png");
+            watermark = new MagickImage(watermarkPath);
+            // przezroczystosc znaku wodnego
+            watermark.Evaluate(Channels.Alpha, EvaluateOperator.Divide, 2);
         }
 
         [BindProperty]
@@ -28,36 +43,35 @@ namespace Laboratorium4.Pages
         {
             if (Image != null && Image.Length > 0)
             {
+                /*
                 var uploadsDirectory = Path.Combine(_environment.WebRootPath, "images");
 
                 if (!Directory.Exists(uploadsDirectory))
                 {
                     Directory.CreateDirectory(uploadsDirectory);
                 }
+                */
 
-                var uniqueFileName = Guid.NewGuid().ToString() + "_" + Image.FileName;
-                var filePath = Path.Combine(uploadsDirectory, uniqueFileName);
+                string uniqueFileName = Guid.NewGuid().ToString() + "_" + Image.FileName;
+                string filePath = Path.Combine(uploadsDirectory, uniqueFileName);
+                /*
                 var watermarkDir = Path.Combine(_environment.WebRootPath, "watermark");
                 var watermarkPath = Path.Combine(watermarkDir, "watermark.png");
-                var galleryDir = Path.Combine(_environment.WebRootPath, "gallery");
-                var galleryPath = Path.Combine(galleryDir, uniqueFileName);
-                using (var stream = new FileStream(filePath, FileMode.Create))
+                */
+                string galleryDir = Path.Combine(_environment.WebRootPath, "gallery");
+                string galleryPath = Path.Combine(galleryDir, uniqueFileName);
+                using (FileStream stream = new FileStream(filePath, FileMode.Create))
                 {
                     Image.CopyTo(stream);
 
                     using var image = new MagickImage(filePath);
-                    using var watermark = new MagickImage(watermarkPath);
-                    // przezroczystosc znaku wodnego
-                    watermark.Evaluate(Channels.Alpha, EvaluateOperator.Divide, 2);
+
                     // narysowanie znaku wodnego
                     image.Composite(watermark, Gravity.Southeast, CompositeOperator.Over);
-                    var galleryStream = new FileStream(galleryPath, FileMode.Create);
-                    image.Write(galleryStream);
+                    //using (var galleryStream = new FileStream(galleryPath, FileMode.Create))
+                    image.Write(galleryPath);
 
                 }
-
-                // Optionally, you can save the file path to a database or do other processing here.
-
                 return RedirectToPage("/Index");
             }
 
