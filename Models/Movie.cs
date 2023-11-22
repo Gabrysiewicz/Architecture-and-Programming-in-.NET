@@ -16,6 +16,7 @@ namespace Laboratorium5.Models
         [UIHint("LongText")]
         public string Description { get; set; }
 
+        [Required(ErrorMessage = "Gatunek jest wymagany")]
         public Genre Genre { get; set; }
 
         [UIHint("Stars")]

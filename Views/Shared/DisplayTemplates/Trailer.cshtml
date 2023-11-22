@@ -1,0 +1,13 @@
+﻿@model string
+@{
+
+}
+
+@if (!string.IsNullOrEmpty(Model))
+{
+    <a href="@Model">Trailer</a>
+}
+else
+{
+    <span>No link provided</span>
+}
