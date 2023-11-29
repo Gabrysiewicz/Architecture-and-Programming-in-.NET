@@ -49,23 +49,31 @@ namespace Laboratorium8.Controllers
         [HttpPut("love/{id}")]
         public IActionResult Love(int id)
         {
+            /*
             var fox = _repo.Get(id);
             if (fox == null)
                 return NotFound();
             fox.Loves++;
             _repo.Update(id, fox);
             return Ok(fox);
+            */
+            return _repo.Loves(id) ? Ok("Your vote has been sent!") : NotFound("Fox not found.");
+
         }
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPut("hate/{id}")]
         public IActionResult Hate(int id)
         {
+            /*
             var fox = _repo.Get(id);
             if (fox == null)
                 return NotFound();
             fox.Hates++;
             _repo.Update(id, fox);
             return Ok(fox);
+            */
+            return _repo.Hates(id) ? Ok("Your vote has been sent!") : NotFound("Fox not found.");
+
         }
     }
 }
