@@ -8,5 +8,7 @@ namespace Laboratorium8.Data
         Fox Get(int id);
         IEnumerable<Fox> GetAll();
         void Update(int id, Fox f);
+        Boolean Loves(int id);
+        Boolean Hates(int id);
     }
 }

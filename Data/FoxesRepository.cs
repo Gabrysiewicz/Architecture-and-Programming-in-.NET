@@ -39,5 +39,35 @@ namespace Laboratorium8.Data
             c.Hates = f.Hates;
             db.GetCollection<Fox>().Update(c);
         }
+        public Boolean Loves(int id)
+        {
+            var c = db.GetCollection<Fox>().FindById(id);
+            if(c != null)
+            {
+                c.Loves++;
+                db.GetCollection<Fox>().Update(c);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+        }
+        public Boolean Hates(int id)
+        {
+            var c = db.GetCollection<Fox>().FindById(id);
+            if (c != null)
+            {
+                c.Hates += 1;
+                db.GetCollection<Fox>().Update(c);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
     }
 }
