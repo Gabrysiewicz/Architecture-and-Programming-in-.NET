@@ -1,31 +1,32 @@
-## Cele przedmiotu:
- 1. Wprowadzenie studenta do języka C#, środowiska aplikacyjnego ASP.NET i ekosystemu platformy .NET,
- 2. Wykorzystanie środowiska ASP.NET do tworzenia wieloplatformowych aplikacji internetowych,
- 3. Wykorzystanie ekosystemu platformy .NET do tworzenia aplikacji współpracujących z bazami danych i innymi systemami informatycznymi.
+## Course Objectives:
+1. Introduce the student to the C# language, the ASP.NET application environment, and the .NET platform ecosystem.  
+2. Use the ASP.NET environment to create cross-platform web applications.  
+3. Utilize the .NET platform ecosystem to develop applications that interact with databases and other IT systems.  
 
-## Efekty kształcenia w zakresie umiejętności:
-- Potrafi zaprojektować prosty system informatyczny korzystający z platformy ASP.NET,
-- Potrafi zaprojektować, zaprogramować i wdrożyć aplikację wykorzystującą mechanizm ORM do komunikacji z systemem bazodanowym,
-- Potrafi poprawnie zaprojektować architekturę aplikacji przy uwzględnieniu problematyki bezpieczeństwa oraz współpracy z innymi systemami informatycznymi.
+## Learning Outcomes – Skills:
+- Able to design a simple IT system using the ASP.NET platform.  
+- Able to design, program, and deploy an application using an ORM mechanism to communicate with a database system.  
+- Able to properly design the application architecture while considering security issues and integration with other IT systems.  
 
-## Zawartość poszczególnych branch'y
-- laboratorium_1 
-  - Tworzenie aplikacji konsolowej w języku C# w paradygmacie programowania obiektowego.
-- laboratorium_2. 
-  - Wykorzystanie mechanizmu LINQ do przetwarzania danych w aplikacji.
-- laboratorium_3. 
-  - Tworzenie aplikacji internetowej w architekturze MVC.
-- laboratorium_4. 
-  - Tworzenie aplikacji internetowej z wykorzystaniem podejścia Razor Pages.
-- laboratorium_5. 
-  - Tworzenie aplikacji internetowej korzystającej z bazy danych oraz mechanizmu ORM.
-- laboratorium_6. 
-  - Walidacja danych użytkownika po stronie aplikacji.
-- laboratorium_7. 
-  - Tworzenie aplikacji internetowej przy wykorzystaniu podejścia „database first”.
-- laboratorium_8. 
-  - Tworzenie aplikacji internetowej dostarczającej Web API
-- laboratorium_9. 
-  - Wykorzystanie uwierzytelnienia w aplikacji typu API.
-- laboratorium_10. 
-  - Testowanie i wdrażanie aplikacji Web API.
+## Branch Contents
+- **laboratory_1**  
+  - Creating a console application in C# using the object-oriented programming paradigm.  
+- **laboratory_2**  
+  - Using LINQ for data processing within the application.  
+- **laboratory_3**  
+  - Creating a web application using the MVC architecture.  
+- **laboratory_4**  
+  - Creating a web application using the Razor Pages approach.  
+- **laboratory_5**  
+  - Creating a web application that uses a database and an ORM mechanism.  
+- **laboratory_6**  
+  - Validating user data on the application side.  
+- **laboratory_7**  
+  - Creating a web application using the "database first" approach.  
+- **laboratory_8**  
+  - Creating a web application providing a Web API.  
+- **laboratory_9**  
+  - Implementing authentication in an API application.  
+- **laboratory_10**  
+  - Testing and deploying a Web API application.  
+
