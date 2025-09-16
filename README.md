@@ -1,48 +1,47 @@
-# Laboratorium 4
+# Laboratory 4
 
-# Zadanie 1 - Utworzenie projektu
-```
+# Task 1 – Creating the Project
+
 Razor Pages
-```
 
-# Zadanie 2 - Wyświetlanie obrazów z 'servera'
-```
-Model index został zmodyfikowany aby obsługiwać ścieżki zależne od OS,
-oraz zostało dodane wyświetlanie nazw plików w katalogu /wwwroot/images
-```
+# Task 2 – Displaying Images from the Server
 
-# Zadanie 3 - Formularz z dodawaniem obrazów
-```
-Został dodany formularz do obsługi dodawanie plików.
-Oraz metoda OnPost()
-```
+The `Index` model was modified to handle OS-dependent paths.  
+Additionally, functionality was added to display file names from the `/wwwroot/images` directory.
 
-# Zadanie 4 - Dodanie przycisku do podstrony z formularzem
-```
+
+# Task 3 – Form for Uploading Images
+
+A form was added to handle file uploads.  
+Additionally, the `OnPost()` method was implemented to process the submitted files.
+
+
+# Task 4 – Adding a Button to the Subpage with the Form
+
+A link was added to navigate to the upload form page:
+
 <a asp-page="Upload">Upload new file...</a>
-```
 
-# Zadanie 5 - Wyświetlanie obrazów
-```
-Zamiast nazw plików wyświetlane są obrazy jeden pod drugim, na środku strony.
-```
+# Task 5 – Displaying Images
 
-# Zadanie 6 - Wyświetlanie pojedyńczego obrazu
-```
-Został dodany widok pojedyńczego obrazu oraz każdy obraz z galeri 
-posiada hiperłącze do wyświetlenia tego konkretnego obrazu w pełnej rozdzielczości
-```
+Instead of displaying file names, the images are now shown one below the other, centered on the page.
 
-# Zadanie 7 - Watermarks
-```
-Obraz watermark.png jest wykorzystywany w celu dodania watermark'a przesyłanym obrazom
-```
+# Task 6 – Displaying a Single Image
 
-# Important
-```
-Miałem problem z wysyłaniem plików na server z wykorzystaniem kodu z zadania, dlatego zmodyfikowałem zadanie.
-W moim przypadku istnieją 3 katalogi:
-- images (Zdjęcia bez watermark)
-- gallery (Zdjęcia z watermark, te są wyświetlane na stronie)
-- watermark (posiada tylko i wyłącznie watermark.png)
-```
+A view for a single image has been added. Each image in the gallery now includes a hyperlink to view that specific image in full resolution.
+
+# Task 7 – Watermarks
+
+The image `watermark.png` is used to add a watermark to uploaded images.
+
+
+
+# File Upload Adjustment
+
+I encountered issues with uploading files to the server using the previous code, so I modified the task.  
+In my setup, there are three directories:
+
+- `images` – stores original images without watermark  
+- `gallery` – stores images with watermark; these are displayed on the website  
+- `watermark` – contains only `watermark.png`
+
