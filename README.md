@@ -1,80 +1,59 @@
-# Laboratorium 3
+# Laboratory 3
 
-# Zadanie 1 - Create env
-```
-Skip
-```
+# Task 1 - Create env
 
-# Zadanie 2 - @DateTime
-```
-Spróbuj wykorzystać składnię Razor do osiągnięcia następującego efektu (tzw.
-formatu daty długiej) dla aktualnej daty zamiast tekstu wprowadzającego.
+# Task 2 - @DateTime
+Try using Razor syntax to achieve the following effect (so-called long date format) for the current date instead of the introductory text.
 
-Zmodyfikuj następnie plik Views/Home/Shared/_Layout.cshtml. Plik ten
-zawiera główny układ treści aplikacji. W stopce znajduje się aktualny rok zapisywany
-podczas generowania projektu – spróbuj zmodyfikować to w taki sposób, aby zawsze rok był
-aktualny. Zwróć uwagę, że zmiana w pliku _Layout jest widoczna we wszystkich już
-obecnych stronach aplikacji, np. na stronie polityki prywatności.
-```
+Then, modify the file `Views/Home/Shared/_Layout.cshtml`. This file contains the main layout of the application content.  
 
-# Zadanie 3 - View Controller
-```
-W składni Razor możesz skorzystać z instrukcji warunkowych i innych instrukcji
-sterujących.
-Spróbuj opracować taki kod, który wyświetli liczbę losową z czerwonym tłem, jeśli
-liczba będzie większa niż 0,5.
-```
+In the footer, the current year is hardcoded from when the project was generated – try modifying it so that the year is always current. Note that changes in the `_Layout` file will be reflected on all existing pages of the application, e.g., on the privacy policy page.
 
-# Zadanie 4 - Scaffolding
-```
-W folderze Models dodaj nową klasę, która powinna być utworzona w przestrzeni
-nazw z przyrostkiem .Models (np. Lab3.Models). Klasa ta będzie nazywać się Contact
-i będzie przechowywać dane osobowe.
 
-Oprócz właściwości Id, dodaj kolejne: Name, Surname, Email, City oraz
-PhoneNumber, wszystkie typu string. Każdą z nich opatrz także atrybutem DisplayName,
-który ją nazwie w sposób zrozumiały dla użytkownika – np. „Imię”, „Nazwisko” i tak dalej.
-Automatyczny generator wykorzysta ten mechanizm, aby wygenerować tabelę i formularze
-w odpowiedni sposób.
-Usuń plik Views/Home/Index.cshtml, ponieważ będziemy generować go
-z wykorzystaniem generatora.
-```
+# Task 3 - View Controller
+In Razor syntax, you can use conditional statements and other control structures.  
 
-# Zadanie 5 - Model
-```
-Dane do prezentowania w widoku w typowych aplikacjach pobierane są z innych
-systemów informatycznych lub przede wszystkim z systemów baz danych. W tym
-laboratorium zbudujemy fikcyjne źródło danych oparte o listę. W folderze Models utwórz
-nową klasę, PhoneBookService i wypełnij ją następującą zawartością: ...
-```
+Try to write code that displays a random number with a red background if the number is greater than 0.5.
 
-# Zadanie 6 - Access to Services
-```
-Aby zdefiniować, że kontroler HomeController będzie uzyskiwał dostęp do
-automatycznie tworzonego obiektu klasy PhoneBookService należy zmodyfikować jego
-konstruktor – dodaj, aby oczekiwany był obiekt klasy PhoneBookService i zapisz
-przekazany obiekt do prywatnego pola kontrolera.
-```
 
-# Zadanie 7 - Views + Controller
-```
-Dodawanie formularza do dodawania nowych kontaktów
-```
+# Task 4 - Scaffolding
+In the `Models` folder, add a new class that should be created in a namespace with the `.Models` suffix (e.g., `Lab3.Models`). This class will be named `Contact` and will store personal data.
 
-# Zadanie 8 - Delete
-```
-Dowawanie usuwania kontaktów
-```
+In addition to the `Id` property, add the following properties: `Name`, `Surname`, `Email`, `City`, and `PhoneNumber`, all of type `string`.  
 
-# Zadanie 9 - 404
-```
-Zabezpiecz usuwanie przed próbą wprowadzenia nie istniejącego id:
-/Home/Delete/123
-/Home/Delete/asd
-```
+Also, annotate each property with a `DisplayName` attribute, which will give it a user-friendly name – e.g., “Name”, “Surname”, and so on. The scaffolding generator will use this mechanism to generate tables and forms appropriately.  
+
+Delete the file `Views/Home/Index.cshtml` because we will generate it using the scaffolding generator.
+
+
+# Task 5 - Model
+Data for display in views in typical applications is usually retrieved from other IT systems or, most commonly, from database systems. In this lab, we will create a fictional data source based on a list.  
+
+In the `Models` folder, create a new class called `PhoneBookService` and populate it with the following content: ...look into pdf...
+
+# Task 6 - Access to Services
+To define that the `HomeController` will have access to the automatically created instance of the `PhoneBookService` class, you need to modify its constructor – add a parameter expecting an object of type `PhoneBookService` and store the passed object in a private field of the controller.
+
+
+# Task 7 - Views + Controller
+Adding a form for creating new contacts
+
+
+# Task 8 - Delete
+Adding functionality for deleting contacts
+
+
+# Task 9 - 404
+Secure the deletion functionality to prevent attempts to delete non-existent or invalid IDs, e.g.:
+
+- /Home/Delete/123  → valid numeric ID but must exist
+- /Home/Delete/asd  → invalid ID (non-numeric)
+
+Implement proper validation in the controller to handle such cases gracefully, e.g., return `NotFound()` or redirect with an error message if the ID is invalid or does not exist.
+
 
 # Final Commit 
-```
-Zadanie 3:
-Welcome text z losowymi liczbami oraz kolorowaniem tych wyników został dodany do treści z zadania 9
-```
+## Task 3
+
+The welcome text with random numbers and color formatting of those numbers has already been added in the content from Task 9. 
+
