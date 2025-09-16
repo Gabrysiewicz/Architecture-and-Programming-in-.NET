@@ -1,29 +1,24 @@
-# Laboratorium 1
+# Laboratory 1
 
-# Zadanie 1. FizzBuzz
-```
-Korzystając z instrukcji takich jak pętle (while, for), instrukcji warunkowych (if,
-else if, else) oraz metod statycznych Console.Write() i Console.WriteLine()
-spróbuj przygotować program, który zadziała w następujący sposób:
-Program ma wyświetlić po kolei liczby od 1 do 100 (włącznie), ale zamiast liczb
-podzielnych przez 3 ma wyświetlić słowo „Fizz”, zamiast podzielnych przez 5 słowo „Buzz”,
-a zamiast podzielnych przez 3 i 5 jednocześnie – słowo „FizzBuzz”.
-```
+## Task 1: FizzBuzz
 
-# Zadanie 2-4 Guess Game
-```
-Spróbuj przygotować teraz program, który wygeneruje liczbę, a następnie zadaniem
-człowieka będzie tę liczbę zgadnąć na podstawie wskazówek, które powiedzą że próba jest
-większa lub mniejsza od liczby, która została wygenerowana.
-```
-```
-Spróbuj dodać do swojej gry mechanizm, który pozwoli na wyświetlenie ile prób
-potrzebne było użytkownikowi, aby wygrać grę.
-```
-```
-Dodaj do swojego projektu nową klasę, która będzie modelem danych, służącym do
-przechowywania informacji o najlepszych wynikach. Zostanie tutaj wykorzystany mechanizm
-właściwości, które są automatycznie generowanymi metodami dla operacji pobierania
-i ustawiania danych dla pól, które mogą realizować dodatkowe operacje niż tylko prosty
-dostęp do pola, ale nie będzie to tutaj wykorzystywane.
-```
+
+Using instructions such as loops (`while`, `for`), conditional statements (`if`, `else if`, `else`), and the static methods `Console.Write()` and `Console.WriteLine()`, try to create a program that works as follows:  
+
+The program should display the numbers from 1 to 100 (inclusive) in order.  
+- For numbers divisible by 3, it should display the word **"Fizz"**.  
+- For numbers divisible by 5, it should display the word **"Buzz"**.  
+- For numbers divisible by both 3 and 5, it should display **"FizzBuzz"** instead of the number.  
+
+
+# Task 2-4 Guess Game
+
+Now try to create a program that generates a number, and the task for the user is to guess that number based on hints indicating whether their guess is higher or lower than the generated number.
+<hr>
+Try adding a mechanism to your game that displays how many attempts the user needed to guess the number and win the game.
+<hr>
+Add a new class to your project that will serve as a data model for storing information about high scores.  
+
+This class will use **properties**, which are automatically generated methods for getting and setting field values. Properties can perform additional operations beyond simple field access, although this functionality will not be used in this task.
+
+
