@@ -1,76 +1,59 @@
-# Laboratorium 2
+# Laboratory  2
 
-# Zadanie 1 - Class
-```
-Wygeneruj nowy projekt korzystając z szablonu aplikacji konsolowej. Następnie,
-dodaj do swojego projektu nowy plik Fruit.cs, który będzie zawierał klasę Fruit.
-Klasa Fruit powinna zawierać trzy właściwości: Name, typu string, IsSweet,
-typu bool oraz Price, typu double.
-W klasie Fruit utwórz publiczną statyczną metodę fabrykującą o nazwie Create(),
-która będzie generować i zwracać nowy obiekt typu Fruit o losowej nazwie spośród zbioru
-nazw, metoda powinna również ustawiać IsSweet oraz Price na wartości losowe.
-```
+# Task 1 - Class
+Generate a new project using the console application template. Then, add a new file `Fruit.cs` to your project, which will contain the `Fruit` class.  
 
-# Zadanie 2 - Override
-```
-Z tego też powodu niezbędne będzie przeciążenie operacji ToString()
-wykonywanej na klasie Fruit. Dodaj do klasy Fruit publiczną metodę zwracającą typ
-string o nazwie ToString() – musisz jednak użyć także słowa kluczowego override,
-które wymusi polimorfizm 
-```
+The `Fruit` class should have three properties:  
+- `Name` of type `string`  
+- `IsSweet` of type `bool`  
+- `Price` of type `double`  
 
-# Zadanie 3 - Linq
-```
-Zmodyfikuj wyświetlanie elementów w taki sposób, aby wyświetlane były tylko
-elementy w których właściwość IsSweet jest ustawiona na True, posortowane względem
-ceny, malejąco.
-```
+Inside the `Fruit` class, create a public static factory method called `Create()` that generates and returns a new `Fruit` object with:  
+- a random `Name` selected from a predefined set of names,  
+- `IsSweet` set to a random boolean value,  
+- `Price` set to a random value.  
 
-# Zadanie 4 - Async
-```
-Rzadko zdarza się, aby cały program działał całkowicie synchronicznie – mechanizmy
-zrównoleglania i asynchroniczności są bardzo popularne w wielu językach programowania.
-Dodaj do swojego projektu nową klasę, która będzie nazywać się UsdCourse. Zawierać ona
-będzie metodę, która komunikuje się z Internetem i pobiera aktualny kurs dolara. Zapytanie
-do zewnętrznego serwisu internetowego jest wykonywane w sposób asynchroniczny, stąd
-metoda GetUsdCourseAsync() ma wykorzystane słowo kluczowe async, z zwraca
-Task<float>, czyli nie wartość typu float, ale „obietnicę” zwrócenia float
-w przyszłości.
-```
 
-# Zadanie 5 - ToStringAsync
-```
-Dodaj do swojej klasy Fruit właściwość UsdPrice – będzie ona obliczała cenę
-w dolarach na podstawie ceny bazowej.
-```
+# Task 2 - Override
+For this reason, it will also be necessary to **override** the `ToString()` operation in the `Fruit` class.  
 
-# Zadanie 6 - MyFormatter
-```
-Kultura („locale”) to zestaw informacji, które opisują w jaki sposób należy wyświetlać
-format daty, godziny, czy też liczb i walut w zależności od regionu świata i używanego
-języka. Jak prawdopodobnie wiesz, w Polsce waluta wyświetlana jest w formacie „0,99 zł”,
-natomiast w USA – „$0.99”. Należy dodać do naszego programu mechanizm, aby cena
-bazowa (Price) była wyświetlana poprzez zwykłe formatowanie walut, a cena w dolarach
-w sposób odpowiedni dla USA.
-Dodaj do swojego programu nową klasę, MyFormatter.
-Klasa ta będzie zawierać jedną metodę statyczną, FormatUsdPrice, która będzie
-przyjmować double i zwracać string.
-```
+Add a public method to the `Fruit` class that returns a `string` and is named `ToString()`.  
+You must use the `override` keyword to enforce polymorphism.
 
-# Zadanie 7 - Test
-```
-Samodzielne, ręczne, sprawdzanie działania programu często jest uciążliwe,
-monotonne i nieefektywne. Z tego też powodu stosuje się między innymi testy automatyczne,
-w szczególności testy jednostkowe. W tym zadaniu spróbujemy przygotować test
-jednostkowy, który sprawdzi, czy klasa MyFormatter i jej metoda FormatUsdPrice()
-działa odpowiednio.
-```
 
-# Zadanie 8 - Test Enchanced
-```
-Zmodyfikuj test w taki sposób, aby sprawdzić, czy zawiera dokładnie tę wartość, która
-została podana do testowania, w dokładnie określonym formacie, np. jeżeli wartością testową
-było 0.05 to czy wynik zaczyna się od $0, potem zawiera konkretnie kropkę, a potem zawiera
-05.
-```
-*2 Pierwsze testy są przygotowane tak aby sprawdzać wynik poprawny natomiast ostatni (3) sprawdza błędny wynik, jeżeli wynik jest poprawny zwradza true*
+# Task 3 - Linq
+Modify the display of the elements so that only items with the property `IsSweet` set to `True` are shown, sorted by `Price` in descending order.
+
+
+# Task 4 - Async
+It is rare for an entire program to run completely synchronously – parallelism and asynchrony mechanisms are very common in many programming languages.  
+
+Add a new class to your project named `UsdCourse`. This class should contain a method that communicates with the Internet and retrieves the current USD exchange rate.  
+
+Since the request to an external web service is performed asynchronously, the method `GetUsdCourseAsync()` should use the `async` keyword and return a `Task<float>`. This does not return a `float` immediately, but rather a "promise" to return a `float` in the future.
+
+
+# Task 5 - ToStringAsync
+Add a property `UsdPrice` to your `Fruit` class – it should calculate the price in US dollars based on the base price.
+
+# Task 6 - MyFormatter
+A culture (`locale`) is a set of information that describes how to display date, time, numbers, and currencies depending on the region and language used.  
+
+As you probably know, in Poland currency is displayed as `0,99 zł`, whereas in the USA it is displayed as `$0.99`.  
+
+You should add a mechanism to your program so that the base price (`Price`) is displayed using the standard currency formatting, and the USD price is displayed in the format appropriate for the USA.  
+
+Add a new class to your program named `MyFormatter`. This class should contain a single static method, `FormatUsdPrice`, which takes a `double` as input and returns a `string`.
+
+
+# Task 7 - Test
+Manually testing a program is often tedious, repetitive, and inefficient. For this reason, automated tests are used, particularly unit tests.  
+
+In this task, we will try to create a unit test to check whether the `MyFormatter` class and its `FormatUsdPrice()` method work correctly.
+
+# Task 8 - Test Enchanced
+Modify the test so that it checks whether the output contains exactly the value provided for testing, in the precise format.  
+
+For example, if the test value was `0.05`, the test should verify that the result starts with `$0`, then contains a period, and then specifically `05`.
+
+*The first 2 tests are designed to check for a correct result, whereas the last one (3) checks for an incorrect result. If the result is correct, it returns true.*
