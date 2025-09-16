@@ -1,42 +1,17 @@
-# Laboratorium 8
+# Laboratory 8
 
-## Zadanie 1 - Tworzenie projektu WebAPI
-```
-dotnet new webapi --no-https -f net6.0
-```
+## Task 1 - Creating a WebAPI Project
 
-## Zadanie 2 - Dodawanie interfejsu oraz klasy repozytorium danych
-```
+## Task 2 - Adding an Interface and Data Repository Class
 
-```
+## Task 3 - Handling Data Retrieval and Addition
 
-## Zadanie 3 - Obsługa zwracania i dodawania danych
-```
+## Task 4 - Methods for Handling "Likes" and "Dislikes"
 
-```
+## Task 5 - Changing and Adjusting Routing
 
-## Zadanie 4 - Metody obsługi dodawania „polubień” i „znielubień”
-```
+## Task 6 - Adding an HTML Client Application
 
-```
+## Task 7 - Handling Basic Authentication
 
-## Zadanie 5 - Zmiana i dostosowanie routingu
-```
-
-```
-
-## Zadanie 6 - Dodawanie aplikacji klienckiej HTML
-```
-nie posiadam archiwum wwwroot.zip
-
-```
-
-## Zadanie 7 - Obsługa uwierzytelnienia Basic
-```
-
-```
-
-## Zadanie 8 - Zmiana sortowania obiektów
-```
-TODO
-```
+## Task 8 - Changing Object Sorting
