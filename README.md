@@ -1,94 +1,85 @@
-# Laboratorium 6
+# Laboratory 6
 
-# Zadanie 1 - Dodawanie ograniczeń do pól modelu
-```
-Ograniczenia w stosunku do pól dodawane są za pomocą atrybutów, takich jak
-[Required], [Range(min, max)] lub [MaxLength(liczba)] w podobny sposób, jak
-w Laboratorium 5 wykorzystywany był atrybut [UIHint].
-Zmodyfikuj plik Movie.cs z folderu Movies/ i dodaj do niego ograniczenia:
-• właściwość Title ma być wymagana i mieć co najwyżej 50 znaków,
-• właściwość Description ma być wymagana,
-• właściwość Rating ma mieć zakres od 1 do 5.
-```
+# Task 1 - Adding Constraints to Model Fields
 
-# Zadanie 2 - Własne opisy błędów
-```
-Aby zastosować własny komunikat błędu, możesz ustawić właściwość
-ErrorMessage atrybutu walidacji, na przykład tak:
+Constraints on fields are added using attributes such as
+[Required], [Range(min, max)] or [MaxLength(number)] in a similar way
+that the [UIHint] attribute was used in Laboratory 5.
+Modify the file Movie.cs in the Movies/ folder and add the following constraints:
+• The Title property must be required and have a maximum of 50 characters,
+• The Description property must be required,
+• The Rating property must have a range from 1 to 5.
+
+
+# Task 2 - Custom Error Messages
+
+To use a custom error message, you can set the
+ErrorMessage property of a validation attribute, for example:
 	[UIHint("Stars")]
-	[Range(1, 5, ErrorMessage = "Ocena filmu musi być liczbą pomiędzy 1 a 5")]
+	[Range(1, 5, ErrorMessage = "The movie rating must be a number between 1 and 5")]
 	public int Rating { get; set; }
-Spróbuj zmodyfikować aplikację tak, aby wyświetlane były własne komunikaty
-błędów dla wszystkich pól.
-```
+Try modifying the application so that custom error messages are displayed
+for all fields.
 
-# Zadanie 3 - Walidacja po stronie klienta
-```
-Chyba działa
-data-val-* były zarówno z jQuery jak i bez
-```
 
-# Zadanie 4 - Dodawanie kolejnej tabeli oraz relacji pomiędzy tabelami w bazie danych
-```
-Należy zacząć od dodania nowego modelu danych – dodaj nową publiczną klasę w
-folderze Models/ o nazwie Genre, która będzie posiadać dwie właściwości – Id oraz Name.
+# Task 3 - Client-Side Validation
 
+
+# Task 4 - Adding Another Table and a Relationship Between Tables in the Database
+
+You should start by adding a new data model – add a new public class in
+the Models/ folder named Genre, which will have two properties – Id and Name.
+```
 public class Genre
 {
     [Key]
     public int Id { get; set; }
     public string Name { get; set; }
 }
-
-W klasie kontekstu danych, MovieDbContext, dodaj odwołanie do tabel
-bazodanowej gatunków filmowych dodając właściwość:
-
+```
+In the data context class, MovieDbContext, add a reference to the database
+table for movie genres by adding the property:
+```
 public DbSet<Genre> Genres { get; set; }
-
-Następnie, w klasie Movie dodaj odwołanie do gatunku filmowego, dodając
-właściwość:
-
+```
+Next, in the Movie class, add a reference to the movie genre by adding the property:
+```
 public Genre Genre { get; set; }
-
-Jak się domyślasz, należy przeprowadzić migrację bazy danych, ponieważ model
-danych uległ zmianie. Otwórz terminal i wydaj komendę:
-
+```
+As you can guess, you need to perform a database migration because the data
+model has changed. Open the terminal and run the command:
+```
 dotnet ef migrations add Genre
-
 ```
 
-# Zadanie 5 - Modyfikacja migracji Genre
-```
-Migracje generowane są jako klasy w folderze Migrations/. Znajdź plik migracji
-o nazwie „Genre”, jego nazwa pliku będzie miała postać „data_Genre.cs”. W pliku tym,
-w metodzie Up() zmodyfikuj domyślną wartość dodawanej kolumny GenreId na 1.
-Następnie, po poleceniu tworzenia tabeli Genres (postaci
-migrationBuilder.CreateTable(name: "Genres", …) dodaj ręczne dodawanie danych:
+# Task 5 - Modifying the Genre Migration
 
+Migrations are generated as classes in the Migrations/ folder. Find the migration
+file named Genre; its filename will look like data_Genre.cs. In this file,
+in the Up() method, modify the default value of the added GenreId column to 1.
+Then, after the command that creates the Genres table
+(migrationBuilder.CreateTable(name: "Genres", …)), add manual data insertion:
+```
 migrationBuilder.InsertData(
 	"Genres",
 	new string[] { "Id", "Name" },
 	new object[] { "1", "unknown" }
 );
-
-Teraz, możesz już wykonać aktualizację bazy danych do nowego schematu, wydając
-komendę:
-
+```
+Now, you can update the database to the new schema by running the command:
+```
 dotnet ef database update
-
-A w jej wyniku wszystkie filmy, które nie miały przypisanego gatunku uzyskają
-gatunek „unknown”.
-Możesz uruchomić aplikację, ale możesz zauważyć, że nie działa ona poprawnie,
-ponieważ formularz dodawania nowego filmu i edycji starego nie działają, a gatunek filmowy
-nie jest nigdzie wyświetlany.
-
 ```
+As a result, all movies that did not have an assigned genre will now have the genre "unknown".
+You can run the application, but you may notice that it does not work correctly,
+because the form for adding a new movie and editing an existing one does not work,
+and the movie genre is not displayed anywhere.
 
-# Zadanie 6 - Wyświetlanie gatunku filmowego na liście
+# Task 6 - Displaying the Movie Genre in the List
+
+Modify the view Views/Home/Index.cshtml by adding one more column
+in the table header in the second-to-last position:
 ```
-Zmodyfikuj widok Views/Home/Index.cshtml dodając jeszcze jedną kolumnę
-w nagłówku tabeli na przedostatnim miejscu:
-
 <th>
   @Html.DisplayNameFor(model => model.Genre)
 </th>
@@ -96,41 +87,45 @@ w nagłówku tabeli na przedostatnim miejscu:
 <td>
   @Html.DisplayFor(modelItem => item.Genre.Name)
 </td>
-
-Niezbędne jest jednak przekazanie do widoku modelu danych, który będzie zawierał
-wypełnioną wartość Genre, jako, że domyślnie nie jest pobierana z bazy danych (lazy
-loading).
-W kontrolerze HomeController, w metodzie Index, zmodyfikuj wybieranie
-wartości z bazy danych, aby uwzględniało także gatunki filmowe:
-
+```
+However, it is necessary to pass to the view a data model that includes the populated Genre value,
+since it is not fetched from the database by default (lazy loading).
+In the HomeController, in the Index method, modify the database query
+to also include movie genres:
+```
 _context.Movies.Include(x => x.Genre).ToListAsync()
-
 ```
 
-# Zadanie 7 - Obsługa dodawania nowego filmu i jego gatunku filmowego
-```
-Możesz zauważyć, że model danych Movie różni się od tego, co chcielibyśmy
-uzyskać – zawiera właściwość typu Genre, podczas gdy chcemy, aby użytkownik miał
-możliwość ręcznego wpisania wartości do pola tekstowego, które zostanie zmapowane na
-istniejący rekord w bazie lub na nowododany rekord. Niezbędne zatem będzie przygotowanie
-innego modelu reprezentującego encję bazodanową oraz obiekt odbierany od użytkownika.
-Takie podejście nazywa się modelami pośrednimi, DTO (Data Transfer Objects) lub czasami
-używane jest określenie ViewModel na wzór architektury MVVM w której również istnieją
-takie klasy pośrednie pomiędzy modelem i widokiem.
-Przygotuj nową klasę, MovieDto, która będzie prawie identyczna jak klasa Movie
-```
 
-# Zadanie 8 - Wykorzystanie elementu <datalist> do tworzenia podpowiedzi
-Chcemy, aby użytkownik miał możliwość wybrania już istniejącego elementu z listy
-gatunków, który zostanie mu lub jej podpowiedziany po wprowadzeniu fragmentu tekstu do
-pola typu <input>. Można tutaj wykorzystać element <datalist> ze standardu HTML5.
-Niezbędne jest jednak przekazanie wszystkich obecnych w bazie gatunków filmowych do
-generowania tej listy.
-Dodaj do klasy MovieDto jeszcze jedną właściwość:
+# Task 7 - Handling the Addition of a New Movie and Its Genre
+You may notice that the Movie data model differs from what we would like to achieve –
+it contains a property of type Genre, whereas we want the user to be able to manually
+enter a value into a text field, which will then be mapped to an existing database record
+or a newly added record. Therefore, it will be necessary to prepare a different model
+representing the database entity and an object received from the user.
+
+This approach is called intermediate models, DTOs (Data Transfer Objects),
+or sometimes referred to as a ViewModel, following the MVVM architecture pattern
+where such intermediate classes exist between the model and the view.
+
+Prepare a new class, MovieDto, which will be almost identical to the Movie class
+
+# Task 8 - Using the <datalist> Element to Provide Suggestions
+
+We want the user to be able to select an existing item from the list of genres,
+which will be suggested as they type a fragment of text into an <input> field.
+Here, the HTML5 <datalist> element can be used.
+
+However, it is necessary to pass all existing movie genres from the database
+to generate this list.
+
+Add one more property to the MovieDto class:
+```
 public List<string>? AllGenres { get; set; }
-Następnie zmodyfikuj widok Views/Home/Create.cshtml, aby generował element
-<datalist> wewnątrz elementu <div> w którym znajduje się <input> dla Genre za
-pomocą następującego podejścia:
+```
+
+Next, modify the view Views/Home/Create.cshtml to generate a <datalist> element
+inside the <div> containing the <input> for Genre using the following approach:
 ```
 <datalist id="genres">
 @foreach (var item in Model.AllGenres)
@@ -139,14 +134,14 @@ pomocą następującego podejścia:
 }
 </datalist>
 ```
-Wreszcie, dodaj do elementu <input> dla Genre atrybut list wskazujący na
-element <datalist>:
+Finally, add the list attribute to the <input> element for Genre,
+pointing to the corresponding <datalist> element:
 ```
 <input asp-for="Genre" class="form-control" list="genres" />
 ```
-Ostatnim krokiem będzie wypełnianie listy AllGenres przy generowaniu formularza
-dodawania nowego filmu. W HomeController, w metodzie Create() (wariancie
-nieoznaczonym atrybutem [HttpPost]) możesz to zrealizować w następujący sposób:
+The final step will be populating the AllGenres list when generating the form
+for adding a new movie. In the HomeController, in the Create() method
+(the variant not marked with the [HttpPost] attribute), you can implement it as follows:
 ```
 public IActionResult Create()
 {
@@ -155,12 +150,4 @@ _context.Genres.Select(x => x.Name).ToList() };
 return View(m);
 }
 ```
-Spróbuj uruchomić swoją aplikację aby przetestować jej działanie
 
-# Zadanie 9 - Zadanie 8 ale dla edycji
-
-```diff
--   Poddaje się, nie jestem aktualnie w stanie tego zrobić, coś mi niedziała, błąd za błedem.
--   Rozwiązanie tego mogłoby wymagać odemnie przepisanie zadania w inny sposób.
--   Jestem na tyle ograniczony czasowo przez to zadanie, że z niego rezygnuje
-```
